@@ -29,23 +29,14 @@ collections:
       - {label: "Subcategory image", name: image, widget: "image"}
       - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "name", searchFields: "name"}
 
-  - name: "productPages"
-    label: "Product Pages"
-    folder: "src/pages/product-pages"
-    create: true
-    fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-      - {label: "Product Type", name: "productType", widget: "string"}
-      - {label: Title, name: title, widget: string}
-
-  - name: "productos"
-    label: "Productos"
-    folder: "src/productos"
+  - name: "products"
+    label: "Products"
+    folder: "src/products"
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: product-page} 
       - {label: "Product Name", name: "name", widget: "string"}
-      - {label: "Ilumination Type", name: "iluminationType", widget: "relation", collection: "productPages", valueField: "productType", searchFields: "productType" }
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "name", searchFields: "name" }
       - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "name", searchFields: "name"}
       - {label: "Product Image", name: "image", widget: "image"}
       - {label: "Serie", name: "name", widget: "string", required: false}
