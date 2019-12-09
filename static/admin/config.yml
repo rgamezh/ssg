@@ -29,6 +29,15 @@ collections:
       - {label: "Subcategory image", name: image, widget: "image"}
       - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "name", searchFields: "name"}
 
+  - name: "productPages"
+    label: "Product Pages"
+    folder: "src/pages/product-pages"
+    create: true
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+      - {label: "Product Type", name: "productType", widget: "string"}
+      - {label: Title, name: title, widget: string}
+
   - name: "productos"
     label: "Productos"
     folder: "src/productos"
@@ -36,7 +45,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: product-page} 
       - {label: "Product Name", name: "name", widget: "string"}
-      - {label: "Ilumination Type", name: "iluminationType", widget: "relation", collection: "pages", valueField: "files.name", searchFields: "files.name" }
+      - {label: "Ilumination Type", name: "iluminationType", widget: "relation", collection: "productPages", valueField: "productType", searchFields: "productType" }
       - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "name", searchFields: "name"}
       - {label: "Product Image", name: "image", widget: "image"}
       - {label: "Serie", name: "name", widget: "string", required: false}
@@ -61,38 +70,6 @@ collections:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Slider", name: "slider", widget: "list", fields: [{label: "Image", name: "image", widget: image}, {label: "Title", name: "title", widget: "string", required: false}, {label: "Caption", name: "caption", widget: "text", required: false}, {label: "Link", name: "link", widget: "string", required: false }]}
           
-      - file: "src/pages/iluminacion-led/index.md"
-        label: "Iluminación Led"
-        name: "led"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: "Product Type", name: "productType", widget: "hidden", default: "led"}
-          - {label: Title, name: title, widget: string}
-
-      - file: "src/pages/iluminacion-led-solar/index.md"
-        label: "Iluminación Led Solar"
-        name: "solar"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: "Product Type", name: "productType", widget: "hidden", default: "solar"}
-          - {label: Title, name: title, widget: string}
-      
-      - file: "src/pages/energias-renovables/index.md"
-        label: "Energías Renovables"
-        name: "renovables"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: "Product Type", name: "productType", widget: "hidden", default: "renovables"}
-          - {label: Title, name: title, widget: string}
-      
-      - file: "src/pages/fibra-de-vidrio/index.md"
-        label: "Fibra de Vidrio"
-        name: "fibra"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
-          - {label: "Product Type", name: "productType", widget: "hidden", default: "fibra"}
-          - {label: Title, name: title, widget: string}
-      
       - file: "src/pages/nosotros/index.md"
         label: "Us"
         name: "us"
