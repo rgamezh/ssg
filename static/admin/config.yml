@@ -27,7 +27,7 @@ collections:
     fields: 
       - {label: "Category name", name: "title", widget: "string"}
       - {label: "Category image", name: "image", widget: "image"}
-      - {label: "Ilumination type", name: "iluminationType", widget: "relation", collection: "iluminationType", valueField: "name", searchFields: "name"}
+      - {label: "Ilumination type", name: "iluminationType", widget: "relation", collection: "iluminationType", valueField: "title", searchFields: "title"}
 
   - name: "subcategories"
     label: "Subcategories"
