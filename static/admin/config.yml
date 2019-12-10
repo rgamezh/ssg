@@ -12,13 +12,22 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "iluminationType"
+    label: "Ilumination type"
+    folder: "src/ilumination-type"
+    create: true
+    fields: 
+      - {label: "Type name", name: "name", widget: "string"}
+      - {label: "Type image", name: "image", widget: "image"}
+
   - name: "categories"
     label: "Categories"
     folder: "src/categories"
     create: true 
     fields: 
       - {label: "Category name", name: "name", widget: "string"}
-      - {label: "Category image", name: image, widget: "image"}
+      - {label: "Category image", name: "image", widget: "image"}
+      - {label: "Ilumination type", name: "iluminationType", widget: "relation", collection: "iluminationType", valueField: "name", searchFields: "name"}
 
   - name: "subcategories"
     label: "Subcategories"
@@ -65,6 +74,6 @@ collections:
         label: "Us"
         name: "us"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "product-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: Title, name: title, widget: string}
            
