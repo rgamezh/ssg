@@ -36,7 +36,7 @@ collections:
     fields: 
       - {label: "Subcategory name", name: "title", widget: "string"}
       - {label: "Subcategory image", name: image, widget: "image"}
-      - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "name", searchFields: "name"}
+      - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "title", searchFields: "title"}
 
   - name: "products"
     label: "Products"
@@ -45,8 +45,8 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: product-page} 
       - {label: "Product Name", name: "title", widget: "string"}
-      - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "name", searchFields: "name" }
-      - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "name", searchFields: "name"}
+      - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "title", searchFields: "title" }
+      - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "title", searchFields: "title"}
       - {label: "Product Image", name: "image", widget: "image"}
       - {label: "Serie", name: "name", widget: "string", required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
