@@ -17,7 +17,7 @@ collections:
     folder: "src/ilumination-type"
     create: true
     fields: 
-      - {label: "Type name", name: "name", widget: "string"}
+      - {label: "Type name", name: "title", widget: "string"}
       - {label: "Type image", name: "image", widget: "image"}
 
   - name: "categories"
@@ -25,7 +25,7 @@ collections:
     folder: "src/categories"
     create: true 
     fields: 
-      - {label: "Category name", name: "name", widget: "string"}
+      - {label: "Category name", name: "title", widget: "string"}
       - {label: "Category image", name: "image", widget: "image"}
       - {label: "Ilumination type", name: "iluminationType", widget: "relation", collection: "iluminationType", valueField: "name", searchFields: "name"}
 
@@ -34,7 +34,7 @@ collections:
     folder: "src/categories/subcategories"
     create: true 
     fields: 
-      - {label: "Subcategory name", name: "name", widget: "string"}
+      - {label: "Subcategory name", name: "title", widget: "string"}
       - {label: "Subcategory image", name: image, widget: "image"}
       - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "name", searchFields: "name"}
 
@@ -44,7 +44,7 @@ collections:
     create: true
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: product-page} 
-      - {label: "Product Name", name: "name", widget: "string"}
+      - {label: "Product Name", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "name", searchFields: "name" }
       - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "name", searchFields: "name"}
       - {label: "Product Image", name: "image", widget: "image"}
