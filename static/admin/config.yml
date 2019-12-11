@@ -47,7 +47,7 @@ collections:
       - {label: "Product Name", name: "title", widget: "string"}
       - {label: "Category", name: "category", widget: "relation", collection: "categories", valueField: "title", searchFields: "title" }
       - {label: "Subcategory", name: "subcategory", widget: "relation", collection: "subcategories", valueField: "title", searchFields: "title"}
-      - {label: "Product Image", name: "image", widget: "image"}
+      - {label: "Product Images", name: "images", widget: "list", fields: [{label: "image", name: "image", widget: "image"}, {label: "Alternative", name: "alt", widget: "string"}]}
       - {label: "Serie", name: "name", widget: "string", required: false}
       - {label: "Description", name: "description", widget: "text", required: false}
       - {label: "Material", name: "material", widget: "string", required: false}
