@@ -58,7 +58,7 @@ collections:
       - {label: "CRI", name: "cri", widget: "string", required: false}
       - {label: "Beam Angle", name: "beamAngle", widget: "string", required: false}
       - {label: "IP", name: "ip", widget: "string", required: false}
-      - {label: "Ficha tecnica", name: "dataSheet", widget: "file"}
+      - {label: "Ficha tecnica", name: "dataSheet", widget: "file", default: datasheet/}
 
   - name: "pages"
     label: "Pages"
