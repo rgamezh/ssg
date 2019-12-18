@@ -17,6 +17,7 @@ collections:
     folder: "src/ilumination-type"
     create: true
     fields: 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ilumination-page"}
       - {label: "Type name", name: "title", widget: "string"}
       - {label: "Type image", name: "image", widget: "image"}
 
