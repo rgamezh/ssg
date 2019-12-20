@@ -20,6 +20,7 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ilumination-page"}
       - {label: "Type name", name: "title", widget: "string"}
       - {label: "Type image", name: "image", widget: "image"}
+      - {label: "Background color", name: "backgroundColor", widget: "string"}
 
   - name: "categories"
     label: "Categories"
@@ -71,7 +72,13 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Slider", name: "slider", widget: "list", fields: [{label: "Image", name: "image", widget: image}, {label: "Title", name: "title", widget: "string", required: false}, {label: "Caption", name: "caption", widget: "text", required: false}, {label: "Link", name: "link", widget: "string", required: false }]}
-          
+          - {label: "Navbar", name: "navbar", widget: "object", 
+              fields: [
+                {label: "Logo", name: "logo", widget: "image"}, 
+                {label: "Color", name: "color", widget: "string", required: false},
+                {label: "Links", name: "links", widget: "list", fields: [{label: "Link logo", name: "linkLogo", widget: "image"}, {label: "Link", name: "link", widget: "string"}]}
+              ]
+            }
       - file: "src/pages/nosotros/index.md"
         label: "Us"
         name: "us"
