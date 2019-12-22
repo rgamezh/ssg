@@ -29,22 +29,22 @@ export const IluminationPageTemplate = ({data}) => (
                 <div className="row mt-5 mb-5">
                     <div className="col-md-3 rounded">
                         <BackgroundImage style={{height: `400px`}} fluid={data.indoor.childImageSharp.fluid}>
-                            <p onClick={this.showIndoor} className="category-selector">Indoor</p>
+                            <p className="category-selector">Indoor</p>
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
                         <BackgroundImage style={{height: `400px`}} fluid={this.props.data.outdoor.childImageSharp.fluid}>
-                            <p onClick={this.showOutdoor} className="category-selector">Outdoor</p>
+                            <p className="category-selector">Outdoor</p>
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
                         <BackgroundImage style={{height: `400px`}} fluid={this.props.data.industrial.childImageSharp.fluid} >
-                            <p onClick={this.showIndustrial} className="category-selector">Industrial</p>
+                            <p className="category-selector">Industrial</p>
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
                         <BackgroundImage style={{height: `400px`}} fluid={this.props.data.led.childImageSharp.fluid} >
-                            <p onClick={this.showLed} className="category-selector">Tiras de Led</p>
+                            <p className="category-selector">Tiras de Led</p>
                         </BackgroundImage>
                     </div>
                 </div>
