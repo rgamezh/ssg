@@ -33,17 +33,17 @@ export const IluminationPageTemplate = ({data}) => (
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
-                        <BackgroundImage style={{height: `400px`}} fluid={this.props.data.outdoor.childImageSharp.fluid}>
+                        <BackgroundImage style={{height: `400px`}} fluid={data.indoor.childImageSharp.fluid}>
                             <p className="category-selector">Outdoor</p>
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
-                        <BackgroundImage style={{height: `400px`}} fluid={this.props.data.industrial.childImageSharp.fluid} >
+                        <BackgroundImage style={{height: `400px`}} fluid={data.indoor.childImageSharp.fluid} >
                             <p className="category-selector">Industrial</p>
                         </BackgroundImage>
                     </div>
                     <div className="col-md-3">
-                        <BackgroundImage style={{height: `400px`}} fluid={this.props.data.led.childImageSharp.fluid} >
+                        <BackgroundImage style={{height: `400px`}} fluid={data.indoor.childImageSharp.fluid} >
                             <p className="category-selector">Tiras de Led</p>
                         </BackgroundImage>
                     </div>
@@ -68,6 +68,20 @@ export const IluminationPageQuery = graphql`
             }
         }
         indoor: file(relativePath: {eq: "decorativas.jpg"}){
+            childImageSharp{
+                fluid(maxWidth: 1920, quality: 100){
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        outdoor: file(relativePath: {eq: "outdoor.jpg"}){
+            childImageSharp{
+                fluid(maxWidth: 1920, quality: 100){
+                    ...GatsbyImageSharpFluid
+                }
+            }
+        }
+        led: file(relativePath: {eq: "FB-72282.jpg"}){
             childImageSharp{
                 fluid(maxWidth: 1920, quality: 100){
                     ...GatsbyImageSharpFluid
