@@ -29,24 +29,36 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
+    let products = []
     const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach(edge => {
       const id = edge.node.id
       const slug = _.deburr(edge.node.fields.slug)
-      createPage({
-        path: slug,
-        tags: edge.node.frontmatter.tags,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-          slug,
-        },
-      })
+      
+      if( edge.node.frontmatter.templateKey === 'product-page' ){
+        products.push(edge)
+      } else if(edge.node.frontmatter.templateKey != null) {
+        createPage({
+          path: slug,
+          tags: edge.node.frontmatter.tags,
+          component: path.resolve(
+            `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          ),
+          // additional data can be passed via context
+          context: {
+            id,
+            slug,
+          },
+        })
+      }
     })
+
+    const productPerPage = 12
+    const numPages  = Math.ceil( products.length / productPerPage )
+    for ( let currentPage=1; currentPage <= numPages; currentPage++ ) {
+      const pathSuffix = ( currentPage>1? currentPage : '' )
+    }
 
     // Tag pages:
     let tags = []

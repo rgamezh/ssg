@@ -703,6 +703,48 @@ footer .divisor{
   to { height: 100px; }
 }
 
+.category-link {
+  overflow: hidden;
+}
+
+.category-wrapper {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.category-wrapper, .category-wrapper .category-selector
+ {
+  border-radius: 30px;
+}
+
+.category-wrapper .category-selector p{
+  transition-duration: .3s;
+  transition-timing-function: linear;
+}
+
+.category-wrapper:hover p {
+  transform: scale(1.5);
+}
+
+.category-wrapper:hover {
+  background-size: 125%;
+  transition-duration: 1s;
+}
+
+.category-selector {
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: #fff;
+  background-color: rgba(0,0,0, .6);
+}
+
 #products-cover{
   background-image: linear-gradient(to bottom, rgba(204,204,52,.65) 0%, rgba(0,0,0,.85) 100%);
 }
