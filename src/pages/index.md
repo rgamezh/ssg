@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: SSG ILUMINACIÓN
 navbar:
   logo: /img/logo-ssg.png
 ---
