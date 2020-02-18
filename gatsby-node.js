@@ -2,13 +2,14 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const fs = require("fs")
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(limit: 2000) {
         edges {
           node {
             id
@@ -16,6 +17,12 @@ exports.createPages = ({ actions, graphql }) => {
               slug
             }
             frontmatter {
+              title
+              category
+              subcategory
+              serie
+              description
+              type
               tags
               templateKey
             }
@@ -29,18 +36,23 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    let products = []
-    const posts = result.data.allMarkdownRemark.edges
-
-    posts.forEach(edge => {
+    const allMarkdown = result.data.allMarkdownRemark.edges
+    const products = []
+    const subcategories = []
+    const store = []
+    let data = {}
+    allMarkdown.forEach(edge => {
       const id = edge.node.id
       const slug = _.deburr(edge.node.fields.slug)
       
-      if( edge.node.frontmatter.templateKey === 'product-page' ){
-        products.push(edge)
-      } else if(edge.node.frontmatter.templateKey != null) {
+      if( edge.node.frontmatter.type === "subcategory" ) {
+        subcategories.push(edge.node)
+      }
+
+      if(edge.node.frontmatter.templateKey != null) {
         createPage({
           path: slug,
+          title: edge.node.frontmatter.title,
           tags: edge.node.frontmatter.tags,
           component: path.resolve(
             `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
@@ -51,15 +63,20 @@ exports.createPages = ({ actions, graphql }) => {
             slug,
           },
         })
+
       }
     })
 
+    subcategories.forEach(node => {
+      
+    })
+    /*
     const productPerPage = 12
     const numPages  = Math.ceil( products.length / productPerPage )
     for ( let currentPage=1; currentPage <= numPages; currentPage++ ) {
       const pathSuffix = ( currentPage>1? currentPage : '' )
     }
-
+    
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
@@ -82,7 +99,7 @@ exports.createPages = ({ actions, graphql }) => {
           tag,
         },
       })
-    })
+    })*/
   })
 }
 
@@ -98,4 +115,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+}
+
+function writeJSON(data, store, type) {
+  store[data.frontmatter.title] = data
+  fs.writeFileSync(`public/${type}.json`, JSON.stringify(store))
 }
