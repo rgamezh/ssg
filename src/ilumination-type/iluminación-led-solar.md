@@ -1,6 +1,6 @@
 ---
 templateKey: ilumination-page
-title: Iluminación Led Solar
+title: Iluminación Solar
 image: /img/clients.jpg
 backgroundColor: '#cccc34'
 ---
