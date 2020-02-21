@@ -1,7 +1,7 @@
 ---
 type: category
 title: Vial
-image: /img/alumbrado-publico.jpg
+image: /img/vial.jpg
 iluminationType: Iluminación Led
 ---
 
