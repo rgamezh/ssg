@@ -1,7 +1,7 @@
 ---
 type: category
 title: Exterior
-image: /img/gal4.png
+image: /img/05-8054.jpg
 iluminationType: Iluminación Led
 ---
 
