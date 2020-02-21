@@ -1,7 +1,7 @@
 ---
 type: category
 title: Interior
-image: /img/decorativas.jpg
+image: /img/work.jpg
 iluminationType: Iluminación Led
 ---
 
