@@ -231,8 +231,6 @@ h1 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2.25rem;
@@ -248,8 +246,6 @@ h2 {
   padding-top: 0;
   margin-bottom: 1.45rem;
   color: inherit;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 1.62671rem;
@@ -703,15 +699,36 @@ footer .divisor{
   to { height: 100px; }
 }
 
-.categories-menu{
-  display: flex;
+.searcher{
+  border: 5px solid #000;
+  box-shadow: 14px 12px #000;
+  &:focus{
+    outline: none;
+    border: 5px solid #67f596;
+    box-shadow: 10px 8px #000;
+  }
+}
+
+.categories-menu-container {
+  padding: 3em;
+  border-radius: 1em;
+  box-shadow: 12px 10px 10px #a6a6a6;
+}
+
+.categories-menu {
   overflow-x: auto;
-  padding: 2em 0;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   &::-webkit-scrollbar {
     display: none;
   }
   -webkit-overflow-scrolling: touch;
+}
+
+.categories-menu-outer {
+  display: flex;
+  padding: 2em;
+  box-sizing: border-box;
+  float: left;
 }
 
 .categories-menu .category-menu-button {
@@ -766,6 +783,34 @@ footer .divisor{
   background-color: rgba(0,0,0, .6);
 }
 
+.subcategory-link{
+  background-color: #30ce65;
+  color: #fff !important;
+  box-shadow: 10px 8px #000;
+  animation: .6s ease-out 0s pop;
+  &:hover{
+    box-shadow: none;
+  }
+  @keyframes pop {
+    0% {
+      transform: scale(0);
+    }
+    25% {
+      transform: scale(.5);
+    }
+    50%{
+      transform: scale(1.1);
+    }
+    75%{
+      transform: scale(1);
+    }
+  }
+}
+
+.serie-link{
+  background-color: #cccc34;
+}
+
 #products-cover{
   background-image: linear-gradient(to bottom, rgba(204,204,52,.65) 0%, rgba(0,0,0,.85) 100%);
 }
@@ -780,4 +825,23 @@ footer .divisor{
 }
 #us-cover{
   background-image: linear-gradient(to bottom, rgba(0,1,101,.65) 0%, rgba(0,0,0,.75) 100%);
+}
+
+.us-titles {
+  font-family: tactic;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: rgb(48, 206, 101);
+  border: 5px solid #67f596;
+  color: #fff;
+  box-shadow: 12px 14px #000;
+  text-transform: uppercase;
+}
+
+.us-content-block{
+  line-height: 2em;
+  border-radius: .5em;
+  padding: 3em;
+  margin: 2em;
+  box-shadow: 8px 5px 10px rgb(167, 166, 166);
 }

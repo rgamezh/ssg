@@ -21,6 +21,20 @@ exports.createPages = ({ actions, graphql }) => {
               category
               subcategory
               serie
+              images {
+                alt
+                image {
+                  childImageSharp {
+                    fluid(quality: 100, maxWidth: 800) {
+                      base64
+                      aspectRatio
+                      srcSet
+                      src
+                      sizes
+                    }
+                  }
+                }
+              }
               description
               type
               tags
@@ -36,17 +50,27 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const allMarkdown = result.data.allMarkdownRemark.edges
-    const products = []
-    const subcategories = []
-    const store = []
-    let data = {}
+    const allMarkdown = result.data.allMarkdownRemark.edges,
+          products = [],
+          subcategories = []
+    let series = [],
+        data = {}
+
     allMarkdown.forEach(edge => {
       const id = edge.node.id
       const slug = _.deburr(edge.node.fields.slug)
+      let iluminationType = ""
+      if(edge.node.frontmatter.templateKey === 'ilumination-page'){
+        iluminationType = edge.node.frontmatter.title
+      }
+      
       
       if( edge.node.frontmatter.type === "subcategory" ) {
         subcategories.push(edge.node)
+      }
+
+      if (_.get(edge, `node.frontmatter.serie`)) {
+        series = series.concat(edge.node.frontmatter.serie )
       }
 
       if(edge.node.frontmatter.templateKey != null) {
@@ -61,22 +85,31 @@ exports.createPages = ({ actions, graphql }) => {
           context: {
             id,
             slug,
+            iluminationType,
           },
         })
+
+        if(edge.node.frontmatter.templateKey === "product-page"){
+          products.push(edge.node)
+        }
 
       }
     })
 
-    subcategories.forEach(node => {
-      
-    })
+    series = _.uniq(series)
+    
+    writeJSON(products, 'products')
+
+    writeJSON(subcategories, 'subcategories')
+
+    writeJSON(series, 'series')
+
     /*
     const productPerPage = 12
     const numPages  = Math.ceil( products.length / productPerPage )
     for ( let currentPage=1; currentPage <= numPages; currentPage++ ) {
       const pathSuffix = ( currentPage>1? currentPage : '' )
     }
-    
     // Tag pages:
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
@@ -117,7 +150,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-function writeJSON(data, store, type) {
-  store[data.frontmatter.title] = data
-  fs.writeFileSync(`public/${type}.json`, JSON.stringify(store))
+function writeJSON(store, type) {
+
+  const JSON_file_path = `public/${type}.json`
+
+  if(fs.existsSync(JSON_file_path)){
+    try {
+      fs.unlinkSync(JSON_file_path)
+    } catch(err) {
+      console.error(err)
+    }
+  }
+    
+  fs.writeFileSync(JSON_file_path, JSON.stringify(store))
 }

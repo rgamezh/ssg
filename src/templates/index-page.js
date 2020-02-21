@@ -81,9 +81,10 @@ const IndexPage = (props) => {
           <div className="col-12 col-md-8">
             <div className="row">
               <div className="col-12 col-sm-6">
-                <Link 
-                  to="/"
-                  className="btn btn-outline-success"
+                <a 
+                  href={props.data.nom.publicURL} 
+                  target="_BLANK" 
+                  className="btn btn-outline-success d-flex justify-content-center align-items-center"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -91,20 +92,21 @@ const IndexPage = (props) => {
                   }}
                 >
                   Certificación NOM
-                </Link>
+                </a>
               </div>
               <div className="col-12 col-sm-6">
-                <Link 
-                  to="/"
-                  className="btn btn-outline-success"
+                <a 
+                  href={props.data.compliance.publicURL} 
+                  target="_BLANK" 
+                  className="btn btn-outline-success d-flex justify-content-center align-items-center"
                   style={{
                     width: '100%',
                     height: '100%',
                     margin: '30px 0',
                   }}
                 >
-                  Certificate of Compliance
-                </Link>
+                  Certificación NOM
+                </a>
               </div>
             </div>
 					</div>
@@ -152,6 +154,12 @@ export const IndexPageQuery = graphql`
           ...GatsbyImageSharpFluid
         }
       }
+    }
+    nom: file(relativePath: {eq: "nom.pdf"}) {
+      publicURL
+    }
+    compliance: file(relativePath: {eq: "compliance.PDF"}) {
+      publicURL
     }
   } 
 `

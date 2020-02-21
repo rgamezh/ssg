@@ -98,6 +98,13 @@ const Navbar = class extends React.Component {
                 }
               }
             }
+            nosotros: file(relativePath: {eq: "nosotros.jpg"}) {
+              childImageSharp {
+                fluid(maxWidth: 900, quality: 100){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         `}
         render={( data ) => (
@@ -112,8 +119,8 @@ const Navbar = class extends React.Component {
                 className="container"
               >
                 <div 
-                className="collapse navbar-collapse justify-content-center"
-                id="nav-toggler"
+                  className="collapse navbar-collapse justify-content-center"
+                  id="nav-toggler"
                 >
                   <Link
                     to="/"
@@ -123,7 +130,7 @@ const Navbar = class extends React.Component {
                       width: 300
                     }}
                   >
-                  <Img fluid={data.Navbar.frontmatter.navbar.logo.childImageSharp.fluid} />
+                    <Img fluid={data.Navbar.frontmatter.navbar.logo.childImageSharp.fluid} />
                   </Link>
                 </div> 
               </div>
@@ -156,6 +163,27 @@ const Navbar = class extends React.Component {
                     </div>
                   ))
                 }
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                  <BackgroundImage
+                    className="background-img"
+                    fluid={data.nosotros.childImageSharp.fluid}
+                  >
+                    <Link
+                      to='nosotros'
+                      style={{backgroundImage: `linear-gradient(to bottom, rgba(0,1,101,.65) 0%, rgba(0,0,0,.85) 100%)`}}
+                      className="special-nav-cover d-flex align-items-end justify-content-center"
+                    >
+                      <p
+                        style={{
+                          borderBottom: `6px solid #2a265d`
+                        }}
+                        className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
+                      >
+                        Nosotros
+                      </p>
+                    </Link>
+                  </BackgroundImage>
+                </div>
               </div>
             </div>
           </>
