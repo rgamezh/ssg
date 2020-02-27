@@ -18,19 +18,30 @@ export default class CategoriesMenu extends React.Component {
     products = {}
 
     onCategoryClick = async (category, type) => {
-        const itemsToRender = []
-        const seriesToRender = []
-        const contador = 0
+        const itemsToRender = [],
+              seriesToRender = [],
+              productsToRender = []
         if( type === 'category' ){
             if(Object.keys(this.state.subcategoriesObject).length === 0){
                 this.subcategories = await import('../../public/subcategories.json')
+            }
+            if( Object.keys(this.state.productsObject).length === 0 ){
+                this.products = await import('../../public/products.json')
             }
             this.subcategories.default.forEach(subcategory => {
                 if(subcategory.frontmatter.category.toLowerCase()  === category.toLowerCase() ) {
                     itemsToRender.push(subcategory)
                 }
             })
+            this.products.default.forEach(product => {
+                if(product.frontmatter.category != null){
+                    if(product.frontmatter.category.toLowerCase() === category.toLowerCase()){
+                        productsToRender.push(product)
+                    }
+                }
+            })
             this.setState({
+                products: productsToRender,
                 subcategoriesObject: this.subcategories,
                 subcategories: itemsToRender,
                 series: [],

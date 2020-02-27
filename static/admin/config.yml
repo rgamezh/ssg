@@ -2,6 +2,7 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
+    message: '[skip ci]'
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'
     delete: 'Delete {{collection}} “{{slug}}”'
