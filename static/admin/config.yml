@@ -4,7 +4,7 @@ backend:
   commit_messages:
     create: '[skip ci] Create {{collection}} “{{slug}}”'
     update: '[skip ci] Update {{collection}} “{{slug}}”'
-    delete: 'Delete {{collection}} “{{slug}}”'
+    delete: '[skip ci] Delete {{collection}} “{{slug}}”'
     uploadMedia: '[skip ci] Upload “{{path}}”'
     deleteMedia: '[skip ci] Delete “{{path}}”'
 
