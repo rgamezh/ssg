@@ -31,7 +31,7 @@ export class IluminationPageTemplate extends React.Component {
 const IluminationPage = ({data, location}) => {
     return (
         <Layout>
-            <div className="container">
+            <div className="container mb-5">
                 <IluminationPageTemplate data={data} path={location.pathname} />
             </div>
         </Layout>

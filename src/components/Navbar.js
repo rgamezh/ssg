@@ -105,6 +105,20 @@ const Navbar = class extends React.Component {
                 }
               }
             }
+            fibra: file(relativePath: {eq: "cert.jpg"}) {
+              childImageSharp {
+                fluid(maxWidth: 900, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+            renovables: file(relativePath: {eq: "energias-renovables.jpg"}) {
+              childImageSharp {
+                fluid(maxWidth: 900, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         `}
         render={( data ) => (
@@ -166,10 +180,52 @@ const Navbar = class extends React.Component {
                 <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
                   <BackgroundImage
                     className="background-img"
+                    fluid={data.fibra.childImageSharp.fluid}
+                  >
+                    <Link
+                      to='/fibra-de-vidrio'
+                      id="fiber-cover"
+                      className="special-nav-cover d-flex align-items-end justify-content-center"
+                    >
+                      <p
+                        style={{
+                          borderBottom: `6px solid #33cf67`
+                        }}
+                        className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
+                      >
+                        Fibra de Vidrio
+                      </p>
+                    </Link>
+                  </BackgroundImage>
+                </div>
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                  <BackgroundImage
+                    className="background-img"
+                    fluid={data.renovables.childImageSharp.fluid}
+                  >
+                    <Link
+                      id="energy-cover"
+                      to='/energias-renovables'
+                      className="special-nav-cover d-flex align-items-end justify-content-center"
+                    >
+                      <p
+                        style={{
+                          borderBottom: `6px solid #029832`
+                        }}
+                        className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
+                      >
+                        Energías Renovables
+                      </p>
+                    </Link>
+                  </BackgroundImage>
+                </div>
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                  <BackgroundImage
+                    className="background-img"
                     fluid={data.nosotros.childImageSharp.fluid}
                   >
                     <Link
-                      to='nosotros'
+                      to='/nosotros'
                       style={{backgroundImage: `linear-gradient(to bottom, rgba(0,1,101,.65) 0%, rgba(0,0,0,.85) 100%)`}}
                       className="special-nav-cover d-flex align-items-end justify-content-center"
                     >

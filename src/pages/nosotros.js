@@ -12,26 +12,22 @@ export default class Nosotros extends React.Component {
 
         return (
             <Layout>
-            <BackgroundImage className="container-fluid p-0" fluid={data.almacen.childImageSharp.fluid}>
-                <div style={{background: `rgba(255,255,255,.3)`}}>
-                    <div style={{maxWidth: `450px`, margin: `0 auto`, padding: `150px 0`}}>
-                        <Img fluid={data.logo.childImageSharp.fluid} />
-                    </div>
-                </div>
+            <BackgroundImage style={{height: '400px'}} className="container-fluid p-0" fluid={data.almacen.childImageSharp.fluid}>
+                
             </BackgroundImage>
             <div className="container">
-                <h1 style={{backgroundColor: 'rgb(204, 204, 52)', border: '5px solid #ffff8a'}} className="us-titles text-center mt-5 mb-5">Acerca de Nosotros</h1>
+                <h1 style={{backgroundColor: 'rgb(204, 204, 52)', border: '5px solid #ffff8a'}} className="main-titles us-titles text-center mb-5">Acerca de Nosotros</h1>
                 
                 <div className="us-content-block">
                     <p>
                         SSG -Synergy Solar Green- cuenta con más de 20 años operando en México, fabricando inicialmente y a la fecha, lámparas decorativas hechas a la medida de acuerdo a los requerimientos del cliente. 
                     </p>
                     <p>
-                        Previendo los cambios tecnológicos, económicos y energéticos en el mundo, SSG consolidó una alianza con  MICROPLUS GERMANY, para fortalecer, mediante la tecnología propia y patentada MICROLED PLUS
+                        Previendo los cambios tecnológicos, económicos y energéticos en el mundo, SSG consolidó una alianza con  MICROPLUS GERMANY, para fortalecer, mediante la tecnología propia y patentada MICROLED PLUS.
                     </p>
                     <ul>
-                        <li>nuestra misión hacia la eficiencia energética y tecnológica</li>
-                        <li>nuestra expansión comercial y presencia internacional </li>
+                        <li>Nuestra misión hacia la eficiencia energética y tecnológica.</li>
+                        <li>Nuestra expansión comercial y presencia internacional.</li>
                     </ul>
                 </div>
 
