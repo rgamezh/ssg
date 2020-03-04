@@ -1,6 +1,6 @@
 ---
 templateKey: product-page
-title: Outdoor LiFePO4 Lithium Battery All In One Led Solar Street Light
+title: 'Outdoor LiFePO4 Lithium Battery All In One Led Solar Street Light '
 category: Lámparas Solares All In One
 images:
   - alt: Product Image
