@@ -1,7 +1,7 @@
 ---
 templateKey: ilumination-page
 title: Iluminación Solar
-image: /img/alumbrado-publico.jpg
+image: /img/iluminacion-solar.jpg
 backgroundColor: '#cccc34'
 ---
 
