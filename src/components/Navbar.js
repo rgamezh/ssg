@@ -13,7 +13,7 @@ const Navbar = class extends React.Component {
       active: false,
       navBarActiveClass: '',
       isHome: false,
-      width: window.innerWidth
+      width: 0,
     }
   }
 
@@ -60,7 +60,7 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(typeof this.state.width)
     return (
       <StaticQuery 
         query={graphql`
