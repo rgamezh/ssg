@@ -10,7 +10,9 @@ export default class CategoriesMenu extends React.Component {
         products: [],
         subcategoriesObject: {},
         productsObject: {},
-        series: []
+        series: [],
+        showSubcategories: false,
+        showSeries: false
     }
 
     subcategories = {}
@@ -21,7 +23,11 @@ export default class CategoriesMenu extends React.Component {
         const itemsToRender = [],
               seriesToRender = [],
               productsToRender = []
+        let hasSubcategories = false,
+            hasSeries = false
+
         if( type === 'category' ){
+        
             if(Object.keys(this.state.subcategoriesObject).length === 0){
                 this.subcategories = await import('../../public/subcategories.json')
             }
@@ -40,12 +46,32 @@ export default class CategoriesMenu extends React.Component {
                     }
                 }
             })
+
+            const l = this.products.default.filter((p) => {
+                return p.frontmatter.category == "Interior"
+            })  
+            
+            //const m = this.products.default.filter( m => m.frontmatter.category.toLowerCase().includes("inte") && m.frontmatter.subcategory.toLowerCase().includes("inte") )
+
+            const all = this.products.default.filter( a => {
+                return Object.values(a.frontmatter).some(res => String(res).includes("Solar"))
+            } )
+
+            console.log(all)
+
+            if(!(Object.keys(itemsToRender).length === 0)) {
+                hasSubcategories = true
+            }
+
             this.setState({
                 products: productsToRender,
                 subcategoriesObject: this.subcategories,
                 subcategories: itemsToRender,
                 series: [],
+                showSubcategories: hasSubcategories,
+                showSeries: false,
             })
+
         } else if( type === 'subcategory' ) {
             
             if(Object.keys(this.state.productsObject).length === 0) {
@@ -59,11 +85,16 @@ export default class CategoriesMenu extends React.Component {
                     }
                 }
             })
+
+            if(!(Object.keys(seriesToRender).length === 0)) {
+                hasSeries = true
+            }
             
             this.setState({
                 productsObject: this.products,
                 products: itemsToRender,
-                series: Array.from(new Set(seriesToRender))
+                series: Array.from(new Set(seriesToRender)),
+                showSeries: hasSeries
             })
         }
     }
@@ -78,7 +109,7 @@ export default class CategoriesMenu extends React.Component {
 
         return (
             <>
-                <div className="categories-menu-container">
+                <div className="categories-menu-container mb-5">
                     <div className="categories-menu">
                         <div className="categories-menu-outer">
                             {
@@ -110,44 +141,54 @@ export default class CategoriesMenu extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="categories-menu-container mt-5 mb-5 p-2">
-                    <div className="subcategories-menu row">
-                        {
-                            subcategories.map(sub => (
-                                <Link 
-                                    key={sub.id}
-                                    to="#e"
-                                    onClick={ (e) => {e.preventDefault(); this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
-                                    role="button"
-                                    className="btn m-3 col-lg-2 subcategory-link"
-                                >
-                                    {sub.frontmatter.title}
-                                </Link>
-                            ))
-                        }
-                    </div>
-                </div>
+                {
+                    this.state.showSubcategories?
+                        <div className="categories-menu-container mb-5 p-2">
+                            <div className="subcategories-menu row">
+                                {
+                                    subcategories.map(sub => (
+                                        <Link 
+                                            key={sub.id}
+                                            to="#e"
+                                            onClick={ (e) => {e.preventDefault(); this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
+                                            role="button"
+                                            className="btn m-3 col-lg-2 subcategory-link"
+                                        >
+                                            {sub.frontmatter.title}
+                                        </Link>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    : ''
+                }
+                
                 <div className="series-menu">
                     <div className="row">
-                        <div className="categories-menu-container p-3 col-lg-3 align-self-start">
-                            {
-                                series.map(serie => (
-                                    <a
-                                        key={serie}
-                                        onClick={ (e) => { e.preventDefault(); this.onCategoryClick( serie, 'serie' ) } }
-                                        role="button"
-                                        className=" btn w-100 mt-2 mb-2 serie-link"
-                                    >
-                                        {serie}
-                                    </a>
-                                ))
-                            }
-                        </div>
-                        <div className="col-lg-9 pl-5 pr-5">
+                        {
+                            this.state.showSeries?
+                                <div className="categories-menu-container p-3 col-lg-3 align-self-start">
+                                    {
+                                        series.map(serie => (
+                                            <a
+                                                key={serie}
+                                                onClick={ (e) => { e.preventDefault(); this.onCategoryClick( serie, 'serie' ) } }
+                                                role="button"
+                                                className=" btn w-100 mt-2 mb-2 serie-link"
+                                            >
+                                                {serie}
+                                            </a>
+                                        ))
+                                    }
+                                </div>
+                            : ''
+                        }
+                        <div className={ this.state.showSeries === false ? 'col-lg-12 pl-5 pr-5' : 'col-lg-9 pl-5 pr-5'  }>
                             <div className="row">
                                 {
                                     products.map(product => (
                                         <div
+                                            key={product.id}
                                             className="col-lg-12 col-12 product-card-wrapper"
                                         >
                                             <div className="product-card row p-4">
@@ -158,7 +199,6 @@ export default class CategoriesMenu extends React.Component {
                                                     <span style={{backgroundColor: '#30ce65'}} className="category-indicator mr-2">{product.frontmatter.subcategory}</span>
                                                     <span style={{backgroundColor: '#cccc34'}} className="category-indicator">{product.frontmatter.serie}</span>
                                                     <Link
-                                                        key={product.id}
                                                         to={product.fields.slug}
                                                         style={{display: 'flex', marginTop: '2em'}}
                                                     >
@@ -174,9 +214,10 @@ export default class CategoriesMenu extends React.Component {
                                 }
                             </div>
                         </div>
-                    
                     </div>
                 </div>
+                    
+                
             </>
         )
     }

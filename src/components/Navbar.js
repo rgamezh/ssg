@@ -8,12 +8,12 @@ const _ = require('lodash')
 const Navbar = class extends React.Component {
 
   constructor(props) {
-    console.log(props)
     super(props)
     this.state = {
       active: false,
       navBarActiveClass: '',
       isHome: false,
+      width: window.innerWidth
     }
   }
 
@@ -60,6 +60,7 @@ const Navbar = class extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <StaticQuery 
         query={graphql`
@@ -105,14 +106,14 @@ const Navbar = class extends React.Component {
                 }
               }
             }
-            fibra: file(relativePath: {eq: "cert.jpg"}) {
+            fibra: file(relativePath: {eq: "postes-fibra-vidrio.jpg"}) {
               childImageSharp {
                 fluid(maxWidth: 900, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-            renovables: file(relativePath: {eq: "energias-renovables.jpg"}) {
+            decorativas: file(relativePath: {eq: "lamparas-decorativas.jpg"}) {
               childImageSharp {
                 fluid(maxWidth: 900, quality: 100) {
                   ...GatsbyImageSharpFluid
@@ -149,11 +150,11 @@ const Navbar = class extends React.Component {
                 </div> 
               </div>
             </nav>
-            <div className="container-fluid">
+            <div className="container-fluid menu-items">
               <div className="row">
                 {
                   data.allMarkdownRemark.edges.map(({ node }) => (
-                    <div key={node.id} className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' } >
+                    <div key={node.id} className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 grow small-height' } >
                   
                       <BackgroundImage
                         className="background-img"
@@ -177,13 +178,13 @@ const Navbar = class extends React.Component {
                     </div>
                   ))
                 }
-                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 grow small-height' }>
                   <BackgroundImage
                     className="background-img"
                     fluid={data.fibra.childImageSharp.fluid}
                   >
                     <Link
-                      to='/fibra-de-vidrio'
+                      to='/postes-fibra-de-vidrio'
                       id="fiber-cover"
                       className="special-nav-cover d-flex align-items-end justify-content-center"
                     >
@@ -193,19 +194,19 @@ const Navbar = class extends React.Component {
                         }}
                         className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
                       >
-                        Fibra de Vidrio
+                        Postes en fibra de vidrio
                       </p>
                     </Link>
                   </BackgroundImage>
                 </div>
-                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 grow small-height' }>
                   <BackgroundImage
                     className="background-img"
-                    fluid={data.renovables.childImageSharp.fluid}
+                    fluid={data.decorativas.childImageSharp.fluid}
                   >
                     <Link
                       id="energy-cover"
-                      to='/energias-renovables'
+                      to='/lamparas-decorativas'
                       className="special-nav-cover d-flex align-items-end justify-content-center"
                     >
                       <p
@@ -214,12 +215,12 @@ const Navbar = class extends React.Component {
                         }}
                         className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
                       >
-                        Energías Renovables
+                        Lámparas Decorativas
                       </p>
                     </Link>
                   </BackgroundImage>
                 </div>
-                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 full-height small-height' }>
+                <div className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 grow small-height' }>
                   <BackgroundImage
                     className="background-img"
                     fluid={data.nosotros.childImageSharp.fluid}

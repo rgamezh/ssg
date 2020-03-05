@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'SSG | ILUMINACIÓN',
+    title: 'SSG | Synergy Solar Green',
     description:
       'Sitio web de Synergy Solar Green. Iluminación Led',
   },

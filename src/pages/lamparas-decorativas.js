@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from '../components/Layout'
 
-export default class EnergiasRenovablesPage extends React.Component {
+export default class LamparasDecorativasPage extends React.Component {
 
     state = {
         titleMarginTop: Number
@@ -24,7 +24,7 @@ export default class EnergiasRenovablesPage extends React.Component {
             <Layout>
                 <Img style={{height: '400px'}} fluid={data.portada.childImageSharp.fluid}/>
                 <div className="container">
-                    <h1 className="main-titles us-titles text-center mb-5" style={{marginTop: `-${this.state.titleMarginTop} !important`}}>Energías Renovables</h1>
+                    <h1 className="main-titles us-titles text-center mb-5" style={{marginTop: `-${this.state.titleMarginTop} !important`}}>Lámparas Decorativas</h1>
 
                     <div className="us-content-block">
                         <p>
@@ -159,7 +159,7 @@ export default class EnergiasRenovablesPage extends React.Component {
 
 export const PageQuery = graphql`
     query {
-        portada: file(relativePath: { eq: "portada-renovables.jpg" }) {
+        portada: file(relativePath: { eq: "portada-lamparas-decorativas.jpg" }) {
             childImageSharp{
                 fluid(maxWidth: 2000){
                     ...GatsbyImageSharpFluid

@@ -19,6 +19,7 @@ collections:
     fields: 
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "ilumination-page"}
       - {label: "Type name", name: "title", widget: "string"}
+      - {label: "Alias", name: "alias", widget: "string", required: false}
       - {label: "Type image", name: "image", widget: "image"}
       - {label: "Background color", name: "backgroundColor", widget: "string"}
 
@@ -29,6 +30,7 @@ collections:
     fields: 
       - {label: "Type", name: "type", widget: "hidden", default: "category"}
       - {label: "Category name", name: "title", widget: "string"}
+      - {label: "Alias", name: "alias", widget: "string", required: false}
       - {label: "Category image", name: "image", widget: "image"}
       - {label: "Ilumination type", name: "iluminationType", widget: "relation", collection: "iluminationType", valueField: "title", searchFields: "title"}
 
@@ -39,6 +41,7 @@ collections:
     fields: 
       - {label: "Type", name: "type", widget: "hidden", default: "subcategory"}
       - {label: "Subcategory name", name: "title", widget: "string"}
+      - {label: "Alias", name: "alias", widget: "string", required: false}
       - {label: "Subcategory image", name: image, widget: "image"}
       - {label: "Category", name: "category", widget: relation, collection: "categories", valueField: "title", searchFields: "title"}
 

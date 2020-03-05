@@ -14,7 +14,7 @@ export default class FibraPage extends React.Component {
             <Layout>
                 <Img style={{height: '400px'}} fluid={data.portada.childImageSharp.fluid}/>
                 <div className="container">
-                    <h1 className="main-titles us-titles text-center mb-5">Fibra de Vidrio</h1>
+                    <h1 className="main-titles us-titles text-center mb-5">Postes en fibra de vidrio</h1>
 
                     <div className="us-content-block">
                         <p>

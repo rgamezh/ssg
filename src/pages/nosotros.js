@@ -16,7 +16,7 @@ export default class Nosotros extends React.Component {
                 
             </BackgroundImage>
             <div className="container">
-                <h1 style={{backgroundColor: 'rgb(204, 204, 52)', border: '5px solid #ffff8a'}} className="main-titles us-titles text-center mb-5">Acerca de Nosotros</h1>
+                <h1 style={{backgroundColor: 'rgb(204, 204, 52)'}} className="main-titles us-titles text-center mb-5">Acerca de Nosotros</h1>
                 
                 <div className="us-content-block">
                     <p>
@@ -31,7 +31,7 @@ export default class Nosotros extends React.Component {
                     </ul>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(151,198,56)', border: '5px solid #d0ff70'}} className="us-titles text-center mt-5 mb-5">Nuestra presencia</h2>
+                <h2 style={{backgroundColor: 'rgb(151,198,56)'}} className="us-titles text-center mt-5 mb-5">Nuestra presencia</h2>
 
                 <div className="us-content-block">
                     <p>
@@ -39,12 +39,12 @@ export default class Nosotros extends React.Component {
                         SEDE PRINCIPAL en ESPAÑA desde 1996 - se desarrollan las gamas de alumbrado publico e industrial: MPG – KS – DOWNLIGHT; <br/>
                         En PORTUGAL, se fabrican los componentes de aluminio y pintura;<br/>
                         En ALEMANIA, se desarrolla el I+D+I  y el control de calidad de los productos bajo estrictas CERTIFICACIONES INTERNACIONALES: <br/>
-                        <ul>
-                            <li>ISO/IQNET – TUV – ENAC</li>
-                            <li>BUREAU VERITAS – eiC – IPAC</li>
-                            <li>UL y NOL+2:2</li>
-                        </ul>
                     </p>
+                    <ul>
+                        <li>ISO/IQNET – TUV – ENAC</li>
+                        <li>BUREAU VERITAS – eiC – IPAC</li>
+                        <li>UL y NOL+2:2</li>
+                    </ul>
                 </div>
 
                 <Img style={{width: '100%'}} fluid={data.mapa.childImageSharp.fluid} />
@@ -56,7 +56,7 @@ export default class Nosotros extends React.Component {
                     </p>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(51,207,103)', border: '5px solid #6bff9c'}} className="us-titles text-center mt-5 mb-5">Nuestros Productos</h2>
+                <h2 style={{backgroundColor: 'rgb(51,207,103)'}} className="us-titles text-center mt-5 mb-5">Nuestros Productos</h2>
 
                 <div className="us-content-block">
                     <p>
@@ -72,7 +72,7 @@ export default class Nosotros extends React.Component {
                     </p>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(2,152,50)', border: '5px solid #1adb58'}} className="us-titles text-center mt-5 mb-5">Nuestros valores y responsabilidad</h2>
+                <h2 style={{backgroundColor: 'rgb(2,152,50)'}} className="us-titles text-center mt-5 mb-5">Nuestros valores y responsabilidad</h2>
 
                 <div className="us-content-block">
                     <p>
