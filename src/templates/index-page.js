@@ -79,34 +79,25 @@ const IndexPage = (props) => {
       <div className="container-fluid">
 				<div className="row">
           <div className="col-12 col-md-8">
+            <h3 className="text-center">Certificados</h3>
             <div className="row">
-              <div className="col-12 col-sm-6">
-                <a 
-                  href={props.data.nom.publicURL} 
-                  target="_BLANK" 
-                  className="btn btn-outline-success d-flex justify-content-center align-items-center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    margin: '30px 0',
-                  }}
-                >
-                  Certificación NOM
-                </a>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate.childImageSharp.fluid} />
               </div>
-              <div className="col-12 col-sm-6">
-                <a 
-                  href={props.data.compliance.publicURL} 
-                  target="_BLANK" 
-                  className="btn btn-outline-success d-flex justify-content-center align-items-center"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    margin: '30px 0',
-                  }}
-                >
-                  Certificación NOM
-                </a>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate2.childImageSharp.fluid} />
+              </div>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate3.childImageSharp.fluid} />
+              </div>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate4.childImageSharp.fluid} />
+              </div>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate5.childImageSharp.fluid} />
+              </div>
+              <div className="col-lg-2 col-sm-4">
+                <Img fluid={props.data.certificate6.childImageSharp.fluid} />
               </div>
             </div>
 					</div>
@@ -155,11 +146,47 @@ export const IndexPageQuery = graphql`
         }
       }
     }
-    nom: file(relativePath: {eq: "nom.pdf"}) {
-      publicURL
+    certificate: file(relativePath: {eq: "certificado.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
-    compliance: file(relativePath: {eq: "compliance.PDF"}) {
-      publicURL
+    certificate2: file(relativePath: {eq: "certificado2.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    certificate3: file(relativePath: {eq: "certificado3.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    certificate4: file(relativePath: {eq: "certificado4.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    certificate5: file(relativePath: {eq: "certificado5.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    certificate6: file(relativePath: {eq: "certificado6.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   } 
 `

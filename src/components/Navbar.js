@@ -99,6 +99,13 @@ const Navbar = class extends React.Component {
                 }
               }
             }
+            secondLogo: file(relativePath: {eq: "logo-frances.png"}) {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 100){
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             nosotros: file(relativePath: {eq: "nosotros.jpg"}) {
               childImageSharp {
                 fluid(maxWidth: 900, quality: 100){
@@ -138,6 +145,7 @@ const Navbar = class extends React.Component {
                   id="nav-toggler"
                 >
                   <Link
+                    className="mr-3"
                     to="/"
                     style={{
                       color: `white`,
@@ -146,6 +154,18 @@ const Navbar = class extends React.Component {
                     }}
                   >
                     <Img fluid={data.Navbar.frontmatter.navbar.logo.childImageSharp.fluid} />
+                  </Link>
+                  <span style={{height: '50px', padding: '1px', backgroundColor: '#000'}}></span>
+                  <Link
+                  className="ml-3"
+                    to="/"
+                    style={{
+                      color: `white`,
+                      textDecoration: `none`,
+                      width: 300
+                    }}
+                  >
+                    <Img fluid={data.secondLogo.childImageSharp.fluid} />
                   </Link>
                 </div> 
               </div>
