@@ -8,104 +8,99 @@ export default class CategoriesMenu extends React.Component {
     state = {
         subcategories: [],
         products: [],
-        subcategoriesObject: {},
-        productsObject: {},
         series: [],
         showSubcategories: false,
         showSeries: false
     }
 
-    subcategories = {}
-
-    products = {}
-
-    onCategoryClick = async (category, type) => {
-        const itemsToRender = [],
+    productRenderer (category, type) {
+        console.log(this.props)
+        const subcategoriesToRender = [],
               seriesToRender = [],
               productsToRender = []
         let hasSubcategories = false,
             hasSeries = false
 
-        if( type === 'category' ){
-        
-            if(Object.keys(this.state.subcategoriesObject).length === 0){
-                this.subcategories = await import('../../public/subcategories.json')
-            }
-            if( Object.keys(this.state.productsObject).length === 0 ){
-                this.products = await import('../../public/products.json')
-            }
-            this.subcategories.default.forEach(subcategory => {
-                if(subcategory.frontmatter.category.toLowerCase()  === category.toLowerCase() ) {
-                    itemsToRender.push(subcategory)
-                }
-            })
-            this.products.default.forEach(product => {
-                if(product.frontmatter.category != null){
-                    if(product.frontmatter.category.toLowerCase() === category.toLowerCase()){
+        if( type === 'category' ) {
+
+            this.props.products.forEach( product => {
+                if( product.frontmatter.category != null ) {
+                    if( product.frontmatter.category.toLowerCase() === category.toLowerCase() ) {
                         productsToRender.push(product)
                     }
                 }
             })
-
-            const l = this.products.default.filter((p) => {
-                return p.frontmatter.category == "Interior"
-            })  
             
-            //const m = this.products.default.filter( m => m.frontmatter.category.toLowerCase().includes("inte") && m.frontmatter.subcategory.toLowerCase().includes("inte") )
+            this.props.subcategories.forEach( subcategory => {
+                if( subcategory.frontmatter.category.toLowerCase() === category.toLowerCase() ) {
+                    subcategoriesToRender.push(subcategory)
+                }
+            })
 
-            const all = this.products.default.filter( a => {
-                return Object.values(a.frontmatter).some(res => String(res).includes("Solar"))
-            } )
-
-            console.log(all)
-
-            if(!(Object.keys(itemsToRender).length === 0)) {
+            if(!(Object.keys(subcategoriesToRender).length === 0)) {
                 hasSubcategories = true
             }
 
             this.setState({
                 products: productsToRender,
-                subcategoriesObject: this.subcategories,
-                subcategories: itemsToRender,
+                subcategories: subcategoriesToRender,
                 series: [],
                 showSubcategories: hasSubcategories,
                 showSeries: false,
             })
 
         } else if( type === 'subcategory' ) {
-            
-            if(Object.keys(this.state.productsObject).length === 0) {
-                this.products = await import('../../public/products.json')
-            }
-            this.products.default.forEach(product => {
-                if(product.frontmatter.subcategory != null){
-                    if(product.frontmatter.subcategory.toLowerCase() === category.toLowerCase()){
-                        itemsToRender.push(product)
+            this.props.products.forEach( product => {
+                if( product.frontmatter.subcategory != null ) {
+                    if( product.frontmatter.subcategory.toLowerCase() === category.toLowerCase() ) {
+                        productsToRender.push(product)
                         seriesToRender.push(product.frontmatter.serie)
                     }
                 }
             })
-
             if(!(Object.keys(seriesToRender).length === 0)) {
                 hasSeries = true
             }
-            
             this.setState({
-                productsObject: this.products,
-                products: itemsToRender,
+                products: productsToRender,
                 series: Array.from(new Set(seriesToRender)),
                 showSeries: hasSeries
             })
+        } else if( type === 'serie' ) {
+            this.props.products.forEach( product => {
+                if( product.frontmatter.serie != null ) {
+                    if( product.frontmatter.serie.toLowerCase() === category.toLowerCase() ) {
+                        productsToRender.push(product)
+                    }
+                }
+            })
+            this.setState({
+                products: productsToRender,
+            })
         }
+        
+    }
+
+    onCategoryClick (category, type) {
+        
+        this.props.getProducts().then(() => {
+            this.productRenderer(category, type)
+        }).catch((e) => {
+            console.log("ha ocurrido un error: " + e)
+        })
+
     }
 
     render() {
-
         const data = this.props.data,
               path = this.props.path,
               subcategories = this.state.subcategories,
               series = this.state.series,
               products = this.state.products
+            
+        if(!this.props.willRender){
+            return null
+        }
 
         return (
             <>

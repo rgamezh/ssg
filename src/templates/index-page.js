@@ -17,53 +17,59 @@ const IndexPage = (props) => {
         <div className="carousel-inner">
           <div className="carousel-item active" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image.childImageSharp.fluid} />
-            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(0,0,0,.6)', borderRadius: '30px', bottom: '60px'}}>
-              <h5>First slide label</h5>
-              <p style={{marginBottom: '1rem'}}>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              <Link
+            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(255,255,255,.8)', borderRadius: '30px', bottom: '60px'}}>
+              <Img className="slider-logo mb-3" fluid={props.data.et2.childImageSharp.fluid} />
+              <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea ET2</p>
+              <a
                     className="btn btn-primary"
-                    to="/"
+                    href="https://www.et2online.com/"
+                    target="_Blank"
+                    rel="noopener noreferrer"
                     style={{
                       color: `white`,
                       textDecoration: `none`,
                     }}
               >
-                Ir al producto
-              </Link>
+                Ir al catalogo
+              </a>
             </div>
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image2.childImageSharp.fluid} />
-            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(0,0,0,.6)', borderRadius: '30px', bottom: '60px'}}>
-              <h5>Second slide label</h5>
-              <p style={{marginBottom: '1rem'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              <Link
+            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(255,255,255,.8)', borderRadius: '30px', bottom: '60px'}}>
+              <Img className="slider-logo text-center mb-3" fluid={props.data.maxim.childImageSharp.fluid} />
+              <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea MAXIM.</p>
+              <a
                     className="btn btn-primary"
-                    to="/"
+                    href="https://www.maximlighting.com/"
+                    target="_Blank"
+                    rel="noopener noreferrer"
                     style={{
                       color: `white`,
                       textDecoration: `none`,
                     }}
               >
-                Ir al producto
-              </Link>
+                Ir al catalogo
+              </a>
             </div>
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image3.childImageSharp.fluid} />
-            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(0,0,0,.6)', borderRadius: '30px', bottom: '60px'}}>
-              <h5>Third slide label</h5>
-              <p style={{marginBottom: '1rem'}}>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              <Link
+            <div className="carousel-caption d-none d-md-block" style={{backgroundColor: 'rgba(255,255,255,.8)', borderRadius: '30px', bottom: '60px'}}>
+              <Img className="slider-logo text-center mb-3" fluid={props.data.quor.childImageSharp.fluid} />
+              <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea Quor.</p>
+              <a
                     className="btn btn-primary"
-                    to="/"
+                    href="http://quorlighting.com/"
+                    rel="noopener noreferrer"
                     style={{
                       color: `white`,
                       textDecoration: `none`,
                     }}
+                    target="_Blank"
               >
-                Ir al producto
-              </Link>
+                Ir al catalogo
+              </a>
             </div>
           </div>
         </div>
@@ -78,8 +84,8 @@ const IndexPage = (props) => {
       </div>
       <div className="container-fluid">
 				<div className="row">
-          <div className="col-12 col-md-8">
-            <h3 className="text-center">Certificados</h3>
+          <div className="col-12 col-md-8 mt-5 mb-5">
+            <h3 className="text-center us-titles mb-5">Certificados & NOM</h3>
             <div className="row">
               <div className="col-lg-2 col-sm-4">
                 <Img fluid={props.data.certificate.childImageSharp.fluid} />
@@ -182,6 +188,27 @@ export const IndexPageQuery = graphql`
       }
     }
     certificate6: file(relativePath: {eq: "certificado6.jpg"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    et2: file(relativePath: {eq: "et2.png"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    maxim: file(relativePath: {eq: "maxim.png"}) {
+      childImageSharp{
+        fluid(maxWidth: 200, quality: 100){
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    quor: file(relativePath: {eq: "quor.png"}) {
       childImageSharp{
         fluid(maxWidth: 200, quality: 100){
           ...GatsbyImageSharpFluid

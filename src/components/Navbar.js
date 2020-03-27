@@ -60,7 +60,6 @@ const Navbar = class extends React.Component {
   }
 
   render() {
-    console.log(typeof this.state.width)
     return (
       <StaticQuery 
         query={graphql`
@@ -74,6 +73,7 @@ const Navbar = class extends React.Component {
                   }
                   frontmatter {
                     title
+                    alias
                     image {
                       childImageSharp {
                         fluid(maxWidth: 900, quality: 100){
@@ -175,7 +175,7 @@ const Navbar = class extends React.Component {
                 {
                   data.allMarkdownRemark.edges.map(({ node }) => (
                     <div key={node.id} className={ this.state.isHome ? 'col-md col-12 p-0 full-height grow' : 'col-md col-12 p-0 grow small-height' } >
-                  
+                      
                       <BackgroundImage
                         className="background-img"
                         fluid={node.frontmatter.image.childImageSharp.fluid}
@@ -191,7 +191,7 @@ const Navbar = class extends React.Component {
                             }}
                             className={ this.state.isHome? 'cover-title' : 'cover-title-margin-sm' }
                           >
-                            {node.frontmatter.title}
+                            {node.frontmatter.alias? node.frontmatter.alias : node.frontmatter.title}
                           </p>
                         </Link>
                       </BackgroundImage>
