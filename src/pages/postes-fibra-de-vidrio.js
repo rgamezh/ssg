@@ -14,9 +14,9 @@ export default class FibraPage extends React.Component {
             <Layout>
                 <Img style={{height: '400px'}} fluid={data.portada.childImageSharp.fluid}/>
                 <div className="container">
-                    <h1 className="main-titles us-titles text-center mb-5">Postes en fibra de vidrio</h1>
+                    <h1 className="page-titles decorative text-center mt-5 mb-5">Postes en fibra de vidrio</h1>
 
-                    <div className="us-content-block">
+                    <div className="">
                         <p>
                             Nuestro compromiso es proporcionar soluciones integrales de sustentabilidad, ahorro energético, económico y ecológicas. 
                         </p>
@@ -57,9 +57,9 @@ export default class FibraPage extends React.Component {
 
                     </div>
 
-                    <h2 className="us-titles text-center mt-5 mb-5">Ventajas de los postes de fibra de vidrio</h2>
+                    <h2 className="default-titles decorative text-center mt-5 mb-5">Ventajas de los postes de fibra de vidrio</h2>
 
-                    <div className="us-content-block">
+                    <div className="">
                         <p>
                             Resistencia mecánica: Tiene una resistencia especifica tracción/densidad) superior al acero.
                             Excelente aislante eléctrico.
@@ -106,27 +106,27 @@ export default class FibraPage extends React.Component {
 
                     <div className="row align-items-center">
                         <div className="col-lg-4 ">
-                            <p className="us-titles poles-title  text-center">Seccionado con placa metálica</p>
+                            <p className="poles-title  text-center">Seccionado con placa metálica</p>
                             <Img style={{width: '100%'}} fluid={data.seccionado.childImageSharp.fluid}/>
                         </div>
                         <div className="col-lg-4 ">
-                            <p className="us-titles poles-title text-center">Seccionado para enterrar</p>
+                            <p className="poles-title text-center">Seccionado para enterrar</p>
                             <Img style={{width: '100%'}} fluid={data.seccionadoParaEnterrar.childImageSharp.fluid}/>
                         </div>
                         <div className="col-lg-4 ">
-                            <p className="us-titles poles-title text-center">Recto con placa metálica</p>
+                            <p className="poles-title text-center">Recto con placa metálica</p>
                             <Img style={{width: '100%'}} fluid={data.recto.childImageSharp.fluid}/>
                         </div>
                         <div className="col-lg-4 ">
-                            <p className="us-titles poles-title text-center">Recto para enterrar</p>
+                            <p className="poles-title text-center">Recto para enterrar</p>
                             <Img style={{width: '100%'}} fluid={data.rectoParaEnterrar.childImageSharp.fluid}/>
                         </div>
                         <div className="col-lg-4 ">
-                            <p className="us-titles poles-title text-center">Cónico servicio pesado con base metálica</p>
+                            <p className="poles-title text-center">Cónico servicio pesado con base metálica</p>
                             <Img style={{width: '100%'}} fluid={data.conico.childImageSharp.fluid}/>
                         </div>
                         <div className="col-lg-4 ">
-                        <p className="us-titles poles-title text-center">Cónico servicio pesado para enterrar</p>
+                            <p className="poles-title text-center">Cónico servicio pesado para enterrar</p>
                             <Img style={{width: '100%'}} fluid={data.conicoEnterrar.childImageSharp.fluid}/>
                         </div>
                     </div>

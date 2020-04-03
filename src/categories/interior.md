@@ -1,7 +1,7 @@
 ---
 type: category
 title: Interior
-image: /img/e91e69_11_2101.jpg
+image: /img/interior-background.png
 iluminationType: Iluminación Led
 ---
 

@@ -1,7 +1,7 @@
 ---
 type: category
 title: Lámparas solares para jardín
-image: /img/lamparas-solares-jardin.png
+image: /img/jardin-background.png
 iluminationType: Iluminación Solar
 ---
 

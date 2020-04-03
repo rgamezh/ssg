@@ -1,7 +1,7 @@
 ---
 type: category
 title: Lámparas solares para muros
-image: /img/solar-wall-light.jpg
+image: /img/muros-background.png
 iluminationType: Iluminación Solar
 ---
 

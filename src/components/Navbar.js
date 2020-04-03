@@ -155,7 +155,6 @@ const Navbar = class extends React.Component {
                   >
                     <Img fluid={data.Navbar.frontmatter.navbar.logo.childImageSharp.fluid} />
                   </Link>
-                  <span style={{height: '50px', padding: '1px', backgroundColor: '#000'}}></span>
                   <Link
                   className="ml-3"
                     to="/"

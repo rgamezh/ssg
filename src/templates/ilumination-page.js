@@ -76,7 +76,8 @@ export default class IluminationPageTemplate extends React.Component {
                 {path === '/iluminacion-led-solar/'?
                     <>
                         <div className="d-flex menu-solar-container">
-                            <div 
+                            <a 
+                                href="#solar"
                                 className="menu-solar menu-solar-cover"
                                 style={{
                                     backgroundImage: `url(${data.solar.childImageSharp.fluid.src})`,
@@ -85,8 +86,9 @@ export default class IluminationPageTemplate extends React.Component {
                                 <div onClick={this.solarSection} className="menu-solar-content">
                                     <h2>Iluminación Solar</h2>
                                 </div>   
-                            </div>
-                            <div 
+                            </a>
+                            <a 
+                                href="#renewable"
                                 className="menu-solar-cover"
                                 style={{
                                     backgroundImage: `url(${data.renovables.childImageSharp.fluid.src})`,
@@ -95,14 +97,38 @@ export default class IluminationPageTemplate extends React.Component {
                                 <div onClick={this.renewableSection} className="menu-solar-content">
                                     <h2>Energías Renovables</h2>
                                 </div>
-                            </div>
+                            </a>
                         </div>
+                        {iluminationTypeWillRender?
+                            <div id="solar">
+                                <Searcher
+                                    willRender={iluminationTypeWillRender}
+                                    getProducts={this.getProducts} 
+                                    products={products}
+                                />
+                                <div className="container">
+                                    <CategoriesMenu 
+                                        willRender={iluminationTypeWillRender}
+                                        data={data} 
+                                        path={path} 
+                                        getProducts={this.getProducts} 
+                                        products={products} 
+                                        subcategories={subcategories} 
+                                    />
+                                    
+                                </div>
+                            </div>
+                            : <Renewable willRender={renewableWillRender}/>
+                        }
+                    </>
+                    :
+                    <>
+                        <Searcher
+                            willRender={iluminationTypeWillRender}
+                            getProducts={this.getProducts} 
+                            products={products}
+                        />
                         <div className="container mb-5">
-                            <Searcher
-                                willRender={iluminationTypeWillRender}
-                                getProducts={this.getProducts} 
-                                products={products}
-                            />
                             <CategoriesMenu 
                                 willRender={iluminationTypeWillRender}
                                 data={data} 
@@ -112,26 +138,8 @@ export default class IluminationPageTemplate extends React.Component {
                                 subcategories={subcategories} 
                             />
                             
-                            <Renewable willRender={renewableWillRender}/>
                         </div>
                     </>
-                    :
-                    <div className="container mb-5">
-                        <Searcher
-                            willRender={iluminationTypeWillRender}
-                            getProducts={this.getProducts} 
-                            products={products}
-                        />
-                        <CategoriesMenu 
-                            willRender={iluminationTypeWillRender}
-                            data={data} 
-                            path={path} 
-                            getProducts={this.getProducts} 
-                            products={products} 
-                            subcategories={subcategories} 
-                        />
-                        
-                    </div>
                 } 
                 
             </Layout>
@@ -159,7 +167,7 @@ export const IluminationPageQuery = graphql`
                         title
                         image {
                             childImageSharp {
-                                fluid(quality: 75, maxWidth: 500){
+                                fluid(quality: 100, maxWidth: 1200){
                                     ...GatsbyImageSharpFluid
                                 }
                             }

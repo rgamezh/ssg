@@ -1,7 +1,7 @@
 ---
 type: category
 title: Industrial
-image: /img/20-9080-60.jpg
+image: /img/industrial-background.png
 iluminationType: Iluminación Led
 ---
 

@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'gatsby'
 import Img from "gatsby-image"
 
+import lupa from '../../static/img/lupa-blanca.png'
+
 import PaginatedProducts from './PaginatedProducts'
 
 export default class Searcher extends React.Component {
@@ -53,38 +55,45 @@ export default class Searcher extends React.Component {
         
         return (
             <>
-                <div className="row justify-content-center mt-5">
-                    <form style={{ marginTop: '1.45rem' }} className="col-10" role="search" method="GET">
-                        <input
-                            type="search"
-                            className="full-width searcher"
-                            name="products"
-                            style={{
-                                backgroundColor: `#30ce65`,
-                                color: `#fff`,
-                                borderRadius: `41px`,
-                                padding: `20px`
-                            }}
-                            value={this.state.query}
-                            onChange={this.search}
-                            placeholder="Buscar"
-                        />
-                    </form>
-                </div>
-                <div className="row">
-                    <div>
-                        {this.state.query?
-                            <p>
-                                Resultados para la busqueda de: <span>{this.state.query}</span>
-                            </p>
-                            : ''
-                        }
+                <div className="container-fluid">
+                    <div 
+                        className="row justify-content-center searcher-container"
+                    >
+                        <form style={{ marginTop: '1.45rem' }} className="col-6" role="search" method="GET">
+                            <div style={{height: '50px'}} className='input-group'>
+                                <div className='input-group-prepend'>
+                                    <span className='input-group-text' style={{backgroundColor: '#33326e'}}>
+                                        <img style={{width: '30px', height: '30px', marginBottom: '0'}} src={lupa} />
+                                    </span>
+                                </div>
+                                <input
+                                    type="search"
+                                    className="full-width searcher form-control"
+                                    name="products"
+                                    value={this.state.query}
+                                    onChange={this.search}
+                                    placeholder="Buscar"
+                                />
+                            </div>
+                        </form>
                     </div>
-                    {
-                        products.length == 0 && this.state.query? <p className="text-center w-100 title">No se encontraron productos</p> : <PaginatedProducts products={products} />
-                    }
-                    
                 </div>
+                <div className="container">
+                    <div className="row">
+                        <div>
+                            {this.state.query?
+                                <p>
+                                    Resultados para la busqueda de: <span>{this.state.query}</span>
+                                </p>
+                                : ''
+                            }
+                        </div>
+                        {
+                            products.length === 0 && this.state.query? <p className="text-center w-100 title">No se encontraron productos</p> : <PaginatedProducts products={products} />
+                        }
+                        
+                    </div>
+                </div>    
             </>
         )
     }

@@ -1,7 +1,7 @@
 ---
 type: category
 title: Tiras y Rollos Led
-image: /img/FB-72282.jpg
+image: /img/led-background.png
 iluminationType: Iluminación Led
 ---
 

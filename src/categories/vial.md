@@ -1,7 +1,7 @@
 ---
 type: category
 title: Vial
-image: /img/vial.jpg
+image: /img/vial-background.png
 iluminationType: Iluminación Led
 ---
 

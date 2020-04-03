@@ -1,7 +1,7 @@
 ---
 type: category
 title: Reflectores solares
-image: /img/solar-flood-light.jpg
+image: /img/reflectores-background.png
 iluminationType: Iluminación Solar
 ---
 

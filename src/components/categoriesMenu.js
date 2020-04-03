@@ -104,9 +104,9 @@ export default class CategoriesMenu extends React.Component {
 
         return (
             <>
-                <div className="categories-menu-container mb-5">
+                <div className="categories-menu-container">
                     <div className="categories-menu">
-                        <div className="categories-menu-outer">
+                        <div className="categories-menu-outer pt-5 pb-5">
                             {
                                 data.categoryByIluminationType.edges.map(({ node }) => (
                                     <div key={node.frontmatter.title} className="category-menu-button">
@@ -124,7 +124,8 @@ export default class CategoriesMenu extends React.Component {
                                                 }}
                                             >
                                                 <div className="category-selector">
-                                                    <p>
+                                                    <span className="triangle"></span>
+                                                    <p className="mb-0">
                                                         {node.frontmatter.title}
                                                     </p>
                                                 </div>
@@ -138,22 +139,20 @@ export default class CategoriesMenu extends React.Component {
                 </div>
                 {
                     this.state.showSubcategories?
-                        <div className="categories-menu-container mb-5 p-2">
-                            <div className="subcategories-menu row">
-                                {
-                                    subcategories.map(sub => (
-                                        <Link 
-                                            key={sub.id}
-                                            to="#e"
-                                            onClick={ (e) => {e.preventDefault(); this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
-                                            role="button"
-                                            className="btn m-3 col-lg-2 subcategory-link"
-                                        >
-                                            {sub.frontmatter.title}
-                                        </Link>
-                                    ))
-                                }
-                            </div>
+                        <div className="subcategories-menu mb-5 row">
+                            {
+                                subcategories.map(sub => (
+                                    <Link 
+                                        key={sub.id}
+                                        to="#e"
+                                        onClick={ (e) => {e.preventDefault(); this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
+                                        role="button"
+                                        className="btn m-3 col-lg-2 subcategory-link"
+                                    >
+                                        {sub.frontmatter.title}
+                                    </Link>
+                                ))
+                            }
                         </div>
                     : ''
                 }

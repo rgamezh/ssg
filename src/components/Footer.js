@@ -10,7 +10,7 @@ import vimeo from '../img/social/vimeo.svg'
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer 
+      <footer
         style={{
           backgroundColor: `#549455`,
           padding: `30px 0`

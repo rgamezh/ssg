@@ -1,7 +1,7 @@
 ---
 type: category
 title: Sistemas solares de energía
-image: /img/solar-power-system.jpg
+image: /img/sistemas-solares-background.png
 iluminationType: Iluminación Solar
 ---
 

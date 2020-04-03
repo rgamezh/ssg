@@ -1,7 +1,7 @@
 ---
 type: category
 title: Semáforos solares
-image: /img/solar-traffic-light.jpg
+image: /img/semaforos-background.png
 iluminationType: Iluminación Solar
 ---
 

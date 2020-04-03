@@ -1,7 +1,7 @@
 ---
 type: category
 title: Lámparas solares para calle
-image: /img/lamparas-solares-calle.jpg
+image: /img/calle-background.png
 iluminationType: Iluminación Solar
 ---
 
