@@ -13,7 +13,7 @@ export default class Layout extends React.Component {
   constructor() {
     super()
     this.state = {
-      width: window.innerWidth
+      width: null
     }
     this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
   }
