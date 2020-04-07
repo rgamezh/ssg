@@ -6,10 +6,51 @@ import './all.scss'
 import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
-const TemplateWrapper = ({ children, path }) => {
+import whatsapp from '../img/whatsapp.png'
+
+export default class Layout extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      width: window.innerWidth
+    }
+    this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange)
+  }
+
+  handleWindowSizeChange() {
+    this.setState({
+      width: window.innerWidth
+    })
+  }
+
+  render() {
+
+    const path = this.props.path
+    const { width } = this.state
+    const mobile = width <= 800
+    const children = this.props.children
+
+    return (   
+      <TemplateWrapper path={path} isMobile={mobile} children={children} />
+    )
+  }
+}
+
+const TemplateWrapper = ({ children, path, isMobile }) => {
+
   const { title, description } = useSiteMetadata()
+
   return (
-    <div>
+    <div style={{position: "relative"}}>
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -48,11 +89,16 @@ const TemplateWrapper = ({ children, path }) => {
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar path={path} />
+      <Navbar isMobile={isMobile} path={path} />
       <div>{children}</div>
+      <a 
+        className="whatsapp-link"
+        href="https://wa.me/5219981082856"
+        target="_BLANK"
+      >
+        <img className="w-100" src={whatsapp} alt="Whatsapp Logo" />
+      </a>
       <Footer />
     </div>
   )
 }
-
-export default TemplateWrapper

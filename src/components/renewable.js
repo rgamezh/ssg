@@ -23,21 +23,17 @@ class Renewable extends React.Component {
                 <div id="renewable" className="container purple-text">
                     <div 
                         className="page-titles-wrapper d-flex align-items-end justify-content-center"
-                        style={{margin: '8rem 0'}}
                     >
-                        <span className="title-icon" style={{width: '80px'}}><Img style={{maxWidth: '80px'}} fluid={data.renovablesIcon.childImageSharp.fluid} /></span>
+                        <span className="title-icon"><Img style={{maxWidth: '80px'}} fluid={data.renovablesIcon.childImageSharp.fluid} /></span>
                         <h1 
-                            className="page-titles text-center mb-0 p-0" 
-                            style={{
-                                marginTop: `-${this.state.titleMarginTop} !important`
-                            }}
+                            className="page-titles mb-0 p-0" 
                         >
                             Energías Renovables
                         </h1>
                     </div>
 
                     <div className="d-flex justify-content-center">
-                        <video autoPlay muted loop style={{maxHeight: '500px'}}>
+                        <video autoPlay muted loop id="renewable-video">
                             <source src={renewableVideo} type="video/mp4" />
                         </video>
                     </div>
@@ -88,9 +84,9 @@ class Renewable extends React.Component {
 
                             </div>
 
-                            <div className="col-lg-6 col-12 mt-lg-5 order-12 text-justify">
+                            <div className="col-lg-6 col-12 order-sm-12 order-md-1 text-justify">
 
-                                <h3>Instalación</h3>
+                                <h3 className="mt-sm-3">Instalación</h3>
 
                                 <p>
                                     Contamos con procesos y con personal capacitado para realizar instalaciones profesionales,
@@ -99,7 +95,7 @@ class Renewable extends React.Component {
 
                             </div>
 
-                            <div className="col-lg-6 col-12 order-1 px-lg-0">
+                            <div className="col-lg-6 col-12 order-sm-1 order-md-12 px-lg-0">
 
                                 <Img style={{maxHeight: '300px'}} fluid={data.instalacion.childImageSharp.fluid} />
                         

@@ -14,15 +14,29 @@ export default class IluminationPageTemplate extends React.Component {
         this.getProducts = this.getProducts.bind(this)
         this.solarSection = this.solarSection.bind(this)
         this.renewableSection = this.renewableSection.bind(this)
+        this.state = {
+            onSearch: false,
+            activeCategory: '',
+            products: [],
+            subcategories: [],
+            renderIluminationType: false,
+            renderRenewable: false,
+            width: window.innerWidth,
+        }
     }
 
-    state = {
-        onSearch: false,
-        activeCategory: '',
-        products: [],
-        subcategories: [],
-        renderIluminationType: false,
-        renderRenewable: false,
+    componentWillMount() {
+        window.addEventListener('ilumintaionPageResize', this.handleWindowSizeChange)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('ilumintaionPageResize ', this.handleWindowSizeChange)
+    }
+
+    handleWindowSizeChange() {
+        this.setState({
+            width: window.innerWidth
+        })
     }
 
     solarSection() {
@@ -59,13 +73,14 @@ export default class IluminationPageTemplate extends React.Component {
     }
 
     render() {
-        const data = this.props.data
-        const path = this.props.path
-        const products = this.state.products.default
-        const subcategories = this.state.subcategories.default
-        let iluminationTypeWillRender = this.state.renderIluminationType
-        let renewableWillRender = this.state.renderRenewable
-        console.log(renewableWillRender)
+        const data = this.props.data,
+              path = this.props.path,
+              products = this.state.products.default,
+              subcategories = this.state.subcategories.default,
+              width = this.state.width
+        let iluminationTypeWillRender = this.state.renderIluminationType,
+            renewableWillRender = this.state.renderRenewable
+        
         if(path === '/iluminacion-led/'){
             iluminationTypeWillRender = true
             renewableWillRender = false
@@ -84,7 +99,7 @@ export default class IluminationPageTemplate extends React.Component {
                                 }}
                             >
                                 <div onClick={this.solarSection} className="menu-solar-content">
-                                    <h2>Iluminación Solar</h2>
+                                    <h2 className="menu-solar-title">Iluminación Solar</h2>
                                 </div>   
                             </a>
                             <a 
@@ -95,7 +110,7 @@ export default class IluminationPageTemplate extends React.Component {
                                 }}
                             >
                                 <div onClick={this.renewableSection} className="menu-solar-content">
-                                    <h2>Energías Renovables</h2>
+                                    <h2 className="menu-solar-title">Energías Renovables</h2>
                                 </div>
                             </a>
                         </div>

@@ -636,8 +636,24 @@ pre tt:after {
   color: #fff;
 }
 
+.mobile-menu {
+  position: fixed;
+  bottom: 0;
+  z-index: 99999;
+  background-color: #33326e;
+  .mobile-link.active {
+    background-color: #fff;
+  }
+  .icon {
+    width: 30px;
+  }
+}
+
 .cover-title-margin-sm, .cover-title {
   width: calc(100% - 20%);
+  @media (max-width: 1024px) {
+    font-size: .8rem;
+  }
 }
 
 .cover-title{
@@ -771,6 +787,11 @@ footer .divisor{
   &:hover {
     transform: scale(1.1)
   }
+  @media (max-width: 600px) {
+    &:hover {
+      transform: none
+    }
+  }
 }
 
 .category-link {
@@ -812,6 +833,9 @@ footer .divisor{
   background-color: rgba(0,0,0, .6);
   transition-duration: .3s;
   transition-timing-function: linear;
+  @media (max-width: 600px) {
+    background-color: rgba(0,0,0, 0);
+  }
   .triangle{
     display: none;
     margin: 0 auto;
@@ -819,12 +843,18 @@ footer .divisor{
     border-top: 20px solid transparent;
     border-left: 20px solid transparent;
     border-bottom: 20px solid #009833;
+    @media (max-width: 600px) {
+      display: block;
+    }
   }
   p {
     display: none;
     width: 100%;
     background-color: #009833;
     padding: 1rem;
+    @media (max-width: 600px) {
+      display: block;
+    }
   }
 }
 
@@ -915,8 +945,12 @@ footer .divisor{
 }
 
 .page-titles-wrapper {
+  margin: 8rem 0;
   &:hover {
     animation: growIcon 1s linear;
+  }
+  @media (max-width: 600px) {
+    margin: 3rem 0
   }
 }
 
@@ -932,11 +966,20 @@ footer .divisor{
   background-size: 200% auto;
   background-clip: text;
   animation: textgradiend 3.5s linear infinite;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 601px) and (max-width: 1023px) {
+    font-size: 2rem;
+  }
 }
 
 .default-titles {
   color: #33326e;
   font-size: 3rem;
+  @media (max-width: 600px) {
+    font-size: 1.3rem;
+  }
 }
 
 .decorative {
@@ -950,13 +993,18 @@ footer .divisor{
   }
   &:hover {
     &:after {
-      width: 400px;
+      width: 70%;
     }
   }
 }
 
 .title-icon{
+  width: 80px;
   margin-right: 1rem;
+  @media (max-width: 600px) {
+    margin-right: .5rem;
+    width: 50px;
+  }
 }
 
 
@@ -1031,6 +1079,9 @@ footer .divisor{
   z-index: 1000;
   border-right: 100px solid #000;
   transform:rotate(10deg);
+  @media (max-width: 800px) {
+    display: none;
+  }
 }
 
 .menu-solar-cover .menu-solar-content {
@@ -1044,6 +1095,18 @@ footer .divisor{
   bottom: 0;
   left: 0;
   right: 0;
+  .menu-solar-title {
+    text-align: center;
+    @media (max-width: 1024px) {
+      font-size: 1.3rem;
+    }
+    @media (max-width: 600px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 375px) {
+      font-size: .9rem;
+    }
+  }
 }
 
 .menu-solar-cover:hover {
@@ -1062,6 +1125,54 @@ footer .divisor{
 
 .navbar{
   background-color: #33326e;
+}
+
+.project-card {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  .cover {
+    .cover-image {
+      max-height: 300px;
+      @media (max-width: 600px) {
+        max-height: 150px;
+      }
+    }
+  }
+  h2 {
+    width: 80%;
+    padding: 1rem;
+    position: relative;
+    z-index: 999;
+    margin-top: -20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    border-radius: .5rem;
+    background-color: #fff;
+  }
+}
+
+#renewable-video {
+  max-height: 500px;
+  @media (max-width: 1024px)  {
+    width: 100%;
+  }
+}
+
+.whatsapp-link {
+  width: 80px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99999;
+  @media (max-width: 600px) {
+    width: 64px;
+    right: 15px;
+    bottom: 60px;
+  }
 }
 
 

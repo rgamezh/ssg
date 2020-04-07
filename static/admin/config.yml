@@ -21,6 +21,7 @@ collections:
       - {label: "Type name", name: "title", widget: "string"}
       - {label: "Alias", name: "alias", widget: "string", required: false}
       - {label: "Type image", name: "image", widget: "image"}
+      - {label: "Mobile nav icon", name: "icon", widget: "image"}
       - {label: "Background color", name: "backgroundColor", widget: "string"}
 
   - name: "categories"

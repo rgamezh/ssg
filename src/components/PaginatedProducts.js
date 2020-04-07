@@ -56,7 +56,7 @@ export default class PaginatedProducts extends React.Component {
                             className="col-lg-12 col-12 product-card-wrapper"
                         >
                             <div className="product-card row p-4">
-                                <div className="col-12 col-lg-7">
+                                <div className="col-12 col-lg-7 order-12">
                                     <h2>{product.frontmatter.title}</h2>
                                     <p>{product.frontmatter.description}</p>
                                     <span style={{backgroundColor: '#000'}} className="category-indicator mr-2">{product.frontmatter.category}</span>
@@ -69,7 +69,7 @@ export default class PaginatedProducts extends React.Component {
                                         Ver más
                                     </Link>
                                 </div>
-                                <div className="col-12 col-lg-5">
+                                <div className="col-12 col-lg-5 order-1">
                                     <Img className="product-image-wrapper" style={{maxHeight: '200px', minHeight: '200px'}} fluid={product.frontmatter.images[0].image.childImageSharp.fluid} />
                                 </div>
                             </div>

@@ -16,9 +16,9 @@ export default class Nosotros extends React.Component {
                 
             </BackgroundImage>
             <div className="container">
-                <h1 style={{backgroundColor: 'rgb(204, 204, 52)'}} className="main-titles us-titles text-center mb-5">Acerca de Nosotros</h1>
+                <h1 className="page-titles decorative text-center mb-5">Acerca de Nosotros</h1>
                 
-                <div className="us-content-block">
+                <div>
                     <p>
                         SSG -Synergy Solar Green- cuenta con más de 20 años operando en México, fabricando inicialmente y a la fecha, lámparas decorativas hechas a la medida de acuerdo a los requerimientos del cliente. 
                     </p>
@@ -31,9 +31,9 @@ export default class Nosotros extends React.Component {
                     </ul>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(151,198,56)'}} className="us-titles text-center mt-5 mb-5">Nuestra presencia</h2>
+                <h2 className="default-titles decorative text-center mt-5 mb-5">Nuestra presencia</h2>
 
-                <div className="us-content-block">
+                <div>
                     <p>
                         MICROPLUS GERMANY cuenta con cuatro sociedades en distintos países europeos y proyectos en 57 países. <br/>
                         SEDE PRINCIPAL en ESPAÑA desde 1996 - se desarrollan las gamas de alumbrado publico e industrial: MPG – KS – DOWNLIGHT; <br/>
@@ -49,16 +49,16 @@ export default class Nosotros extends React.Component {
 
                 <Img style={{width: '100%'}} fluid={data.mapa.childImageSharp.fluid} />
 
-                <div className="us-content-block">
+                <div>
                     <p>
                         Nuestra misión y expansión ha seguido fortaleciéndose. Hoy SSG tiene su sede operativa en Cancún, Q. Roo, México,
                         y cuenta con fábricas en Guadalajara, CDMX, Puebla y Monterrey, así como también en España, China y Colombia y hemos ampliado nuestras relaciones comerciales a Canadá y República Dominicana.
                     </p>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(51,207,103)'}} className="us-titles text-center mt-5 mb-5">Nuestros Productos</h2>
+                <h2 className="default-titles decorative text-center mt-5 mb-5">Nuestros Productos</h2>
 
-                <div className="us-content-block">
+                <div>
                     <p>
                         Con MICROLED PLUS ofrecemos un producto competitivo en precio y en calidad, con una tecnología propia, pudiendo ofrecer una eficacia de 150-180 lm/W , colocándonos a la vanguardia en rendimiento e innovación. Cabe resaltar que el ángulo direccional de emisión de luz (120°) de nuestras lámparas y luminarias reduce el gasto energético entre un 75% y un 93% respecto a las tradicionales. Así mismo, éste es dirigible en la dirección deseada a través de nuestra lente de vidrio, lo hace, además, que la contaminación lumínica prácticamente desaparezca y que el flujo luminoso hacia el hemisferio superior, sea prácticamente nulo.
                     </p>
@@ -72,9 +72,9 @@ export default class Nosotros extends React.Component {
                     </p>
                 </div>
 
-                <h2 style={{backgroundColor: 'rgb(2,152,50)'}} className="us-titles text-center mt-5 mb-5">Nuestros valores y responsabilidad</h2>
+                <h2 className="default-titles decorative text-center mt-5 mb-5">Nuestros valores y responsabilidad</h2>
 
-                <div className="us-content-block">
+                <div>
                     <p>
                         Cabe resaltar que nuestras fábricas en México, China y Colombia, se alinean también a nuestra misión y estándares de desempeño, calidad, tecnología y precio, todo lo cual se diferencía en el mercado por nuestra RESPONSABILIDAD, PROFESIONALISMO, ÉTICA, HONESTIDAD, CONFIABILIDAD. 
                     </p>

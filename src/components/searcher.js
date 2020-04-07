@@ -35,7 +35,6 @@ export default class Searcher extends React.Component {
         } else {
             this.props.getProducts().then(() => {
                 this.queryResult = this.props.products.filter( product => {
-                    console.log(product)
                     return Object.values( product.frontmatter ).some(res => String(res).toLowerCase().includes(eventValue) )
                 })
             })

@@ -8,16 +8,16 @@ import Layout from '../components/Layout'
 const IndexPage = (props) => {
   return (
     <Layout path={props.location.pathname}>
-      <div id="carouselExampleCaptions" className="carousel slide" data-ride="carousel">
+      <div id="indexCarousel" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" className="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+          <li data-target="#indexCarousel" data-slide-to="0" className="active"></li>
+          <li data-target="#indexCarousel" data-slide-to="1"></li>
+          <li data-target="#indexCarousel" data-slide-to="2"></li>
         </ol>
         <div className="carousel-inner">
           <div className="carousel-item active" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-none d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo mb-3" fluid={props.data.et2.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea ET2</p>
               <a
@@ -36,7 +36,7 @@ const IndexPage = (props) => {
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image2.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-none d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo text-center mb-3" fluid={props.data.maxim.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea MAXIM.</p>
               <a
@@ -55,7 +55,7 @@ const IndexPage = (props) => {
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image3.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-none d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo text-center mb-3" fluid={props.data.quor.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea Quor.</p>
               <a
@@ -73,11 +73,11 @@ const IndexPage = (props) => {
             </div>
           </div>
         </div>
-        <a className="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <a className="carousel-control-prev" href="#indexCarousel" role="button" data-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="sr-only">Previous</span>
         </a>
-        <a className="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <a className="carousel-control-next" href="#indexCarousel" role="button" data-slide="next">
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="sr-only">Next</span>
         </a>
@@ -87,29 +87,30 @@ const IndexPage = (props) => {
           <div className="col-12 certs-container">
             <h3 className="text-center default-titles mb-5">Certificados & NOM</h3>
             <div className="row">
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-3 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate.childImageSharp.fluid} />
               </div>
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-3 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate2.childImageSharp.fluid} />
               </div>
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-3 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate3.childImageSharp.fluid} />
               </div>
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-3 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate4.childImageSharp.fluid} />
               </div>
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-3 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate5.childImageSharp.fluid} />
               </div>
-              <div className="col-lg-2 col-sm-4 certs">
+              <div className="col-sm-6 col-lg-2 mb-3 mb-lg-0 certs">
                 <Img fluid={props.data.certificate6.childImageSharp.fluid} />
               </div>
             </div>
 					</div>
 				</div>
 			</div>
-      <div style={{backgroundColor: `#549455`}} className="container-fluid pt-5 pb-5">
+      <div style={{backgroundColor: `#aeaeae
+      `}} className="container-fluid pt-5 pb-5">
         <div className="row">
           <div className="col-12 d-flex flex-column justify-content-center align-items-center">
             <div className="contact-info-container">

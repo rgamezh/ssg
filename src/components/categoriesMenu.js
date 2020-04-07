@@ -186,8 +186,8 @@ export default class CategoriesMenu extends React.Component {
                                             className="col-lg-12 col-12 product-card-wrapper"
                                         >
                                             <div className="product-card row p-4">
-                                                <div className="col-12 col-lg-7">
-                                                    <h2>{product.frontmatter.title}</h2>
+                                                <div className="col-12 col-lg-7 order-12">
+                                                    <h2 className="text-center text-lg-left">{product.frontmatter.title}</h2>
                                                     <p>{product.frontmatter.description}</p>
                                                     <span style={{backgroundColor: '#000'}} className="category-indicator mr-2">{product.frontmatter.category}</span>
                                                     <span style={{backgroundColor: '#30ce65'}} className="category-indicator mr-2">{product.frontmatter.subcategory}</span>
@@ -199,7 +199,7 @@ export default class CategoriesMenu extends React.Component {
                                                         Ver más
                                                     </Link>
                                                 </div>
-                                                <div className="col-12 col-lg-5">
+                                                <div className="col-12 col-lg-5 order-1 mb-3 mb-lg-0">
                                                     <Img className="product-image-wrapper" style={{maxHeight: '200px', minHeight: '200px'}} fluid={product.frontmatter.images[0].image.childImageSharp.fluid} />
                                                 </div>
                                             </div>
