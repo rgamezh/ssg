@@ -21,22 +21,8 @@ export default class IluminationPageTemplate extends React.Component {
             subcategories: [],
             renderIluminationType: false,
             renderRenewable: false,
-            width: window.innerWidth,
+            
         }
-    }
-
-    componentWillMount() {
-        window.addEventListener('ilumintaionPageResize', this.handleWindowSizeChange)
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('ilumintaionPageResize ', this.handleWindowSizeChange)
-    }
-
-    handleWindowSizeChange() {
-        this.setState({
-            width: window.innerWidth
-        })
     }
 
     solarSection() {
@@ -76,8 +62,8 @@ export default class IluminationPageTemplate extends React.Component {
         const data = this.props.data,
               path = this.props.path,
               products = this.state.products.default,
-              subcategories = this.state.subcategories.default,
-              width = this.state.width
+              subcategories = this.state.subcategories.default
+            
         let iluminationTypeWillRender = this.state.renderIluminationType,
             renewableWillRender = this.state.renderRenewable
         

@@ -58,7 +58,7 @@ export default class Searcher extends React.Component {
                     <div 
                         className="row justify-content-center searcher-container"
                     >
-                        <form style={{ marginTop: '1.45rem' }} className="col-6" role="search" method="GET">
+                        <form style={{ marginTop: '1.45rem' }} className="col-sm-12 col-md-8 col-lg-6" role="search" method="GET">
                             <div style={{height: '50px'}} className='input-group'>
                                 <div className='input-group-prepend'>
                                     <span className='input-group-text' style={{backgroundColor: '#33326e'}}>
