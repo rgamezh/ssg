@@ -18,7 +18,7 @@ export default class Layout extends React.Component {
       }
     } else {
       this.state = {
-        width: 900
+        width: null
       }
     }
     this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
@@ -37,17 +37,23 @@ export default class Layout extends React.Component {
   }
 
   handleWindowSizeChange() {
-    this.setState({
-      width: window.innerWidth
-    })
+    if( typeof window !== `undefined` ) {
+      this.setState({
+        width: window.innerWidth
+      })
+    }
   }
 
   render() {
 
     const path = this.props.path
     const { width } = this.state
-    const mobile = width <= 800
     const children = this.props.children
+    let mobile = null
+    
+    if (width != null) {
+      mobile = width <= 800
+    }
 
     return (   
       <TemplateWrapper path={path} isMobile={mobile} children={children} />

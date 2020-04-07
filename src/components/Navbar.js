@@ -42,7 +42,7 @@ const Navbar = class extends React.Component {
 
   render() {
     const isMobile = this.props.isMobile
-
+    
     if(isMobile){
       return <MobileNav />
     } else {
