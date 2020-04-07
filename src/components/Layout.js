@@ -12,18 +12,24 @@ export default class Layout extends React.Component {
 
   constructor() {
     super()
-    this.state = {
-      width: null
+    if( typeof window !== `undefined` ) {
+      this.state = {
+        width: window.innerWidth
+      }
     }
     this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
   }
 
   componentWillMount() {
-    window.addEventListener('resize', this.handleWindowSizeChange)
+    if( typeof window !== `undefined` ) {
+      window.addEventListener('resize', this.handleWindowSizeChange)
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleWindowSizeChange)
+    if( typeof window !== `undefined` ) {
+      window.removeEventListener('resize', this.handleWindowSizeChange)
+    }
   }
 
   handleWindowSizeChange() {
