@@ -16,6 +16,10 @@ export default class Layout extends React.Component {
       this.state = {
         width: window.innerWidth
       }
+    } else {
+      this.state = {
+        width: 900
+      }
     }
     this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
   }
