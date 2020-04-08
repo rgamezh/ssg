@@ -110,10 +110,11 @@ export default class CategoriesMenu extends React.Component {
                             {
                                 data.categoryByIluminationType.edges.map(({ node }) => (
                                     <div key={node.frontmatter.title} className="category-menu-button">
+                                        {console.log(node)}
                                         <Link
-                                            onClick={ (e) => {e.preventDefault(); this.onCategoryClick(node.frontmatter.title, node.frontmatter.type)} }
+                                            onClick={ () => { this.onCategoryClick(node.frontmatter.title, node.frontmatter.type)} }
                                             className="category-link"
-                                            to={ path + '#' + node.frontmatter.title }
+                                            to={ path + '#subcategories' }
                                         >
                                             <div
                                                 className="category-wrapper"
@@ -139,13 +140,13 @@ export default class CategoriesMenu extends React.Component {
                 </div>
                 {
                     this.state.showSubcategories?
-                        <div className="subcategories-menu mb-5 row">
+                        <div id="subcategories" className="subcategories-menu mb-5 row">
                             {
                                 subcategories.map(sub => (
                                     <Link 
                                         key={sub.id}
-                                        to="#e"
-                                        onClick={ (e) => {e.preventDefault(); this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
+                                        to={ path + '#series' }
+                                        onClick={ () => { this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
                                         role="button"
                                         className="btn m-3 col-lg-2 subcategory-link"
                                     >
@@ -157,7 +158,7 @@ export default class CategoriesMenu extends React.Component {
                     : ''
                 }
                 
-                <div className="series-menu">
+                <div id="series" className="series-menu">
                     <div className="row">
                         {
                             this.state.showSeries?
@@ -165,8 +166,9 @@ export default class CategoriesMenu extends React.Component {
                                     {
                                         series.map(serie => (
                                             <a
+                                                href="#products"
                                                 key={serie}
-                                                onClick={ (e) => { e.preventDefault(); this.onCategoryClick( serie, 'serie' ) } }
+                                                onClick={ () => { this.onCategoryClick( serie, 'serie' ) } }
                                                 role="button"
                                                 className=" btn w-100 mt-2 mb-2 serie-link"
                                             >
@@ -177,7 +179,7 @@ export default class CategoriesMenu extends React.Component {
                                 </div>
                             : ''
                         }
-                        <div className={ this.state.showSeries === false ? 'col-lg-12 pl-5 pr-5' : 'col-lg-9 pl-5 pr-5'  }>
+                        <div id="products" className={ `mt-3 ${this.state.showSeries === false ? 'col-lg-12 pl-md-5 pr-md-5' : 'col-lg-9 pl-md-5 pr-md-5'}` }>
                             <div className="row">
                                 {
                                     products.map(product => (
@@ -185,13 +187,13 @@ export default class CategoriesMenu extends React.Component {
                                             key={product.id}
                                             className="col-lg-12 col-12 product-card-wrapper"
                                         >
-                                            <div className="product-card row p-4">
+                                            <div className="product-card row p-sm-0 p-lg-4">
                                                 <div className="col-12 col-lg-7 order-12">
                                                     <h2 className="text-center text-lg-left">{product.frontmatter.title}</h2>
                                                     <p>{product.frontmatter.description}</p>
-                                                    <span style={{backgroundColor: '#000'}} className="category-indicator mr-2">{product.frontmatter.category}</span>
-                                                    <span style={{backgroundColor: '#30ce65'}} className="category-indicator mr-2">{product.frontmatter.subcategory}</span>
-                                                    <span style={{backgroundColor: '#cccc34'}} className="category-indicator">{product.frontmatter.serie}</span>
+                                                    <span style={{borderBottom: '2px solid #009833'}} className="category-indicator mr-2">{product.frontmatter.category}</span>
+                                                    <span style={{borderBottom: '2px solid #2ccf6b'}} className="category-indicator mr-2">{product.frontmatter.subcategory}</span>
+                                                    <span style={{borderBottom: '2px solid #cdcb39'}} className="category-indicator">{product.frontmatter.serie}</span>
                                                     <Link
                                                         to={product.fields.slug}
                                                         style={{display: 'flex', marginTop: '2em'}}

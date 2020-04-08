@@ -40,15 +40,7 @@ export default class PaginatedProducts extends React.Component {
         let end = begin + this.productsPerPage
         return(
             <>
-                {
-                    <div>
-                        <a>primera</a>
-                        <a>1</a>
-                        <a>2</a>
-                        <a>3</a>
-                        <a>ultima</a>
-                    </div>
-                }
+                
                 {
                     products.slice(begin, end).map(product => (
                         <div
