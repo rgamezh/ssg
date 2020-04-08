@@ -12,51 +12,36 @@ export default class Layout extends React.Component {
 
   constructor() {
     super()
-    if( typeof window !== `undefined` ) {
-      this.state = {
-        width: window.innerWidth
-      }
-    } else {
-      this.state = {
-        width: null
-      }
+    this.state = {
+      isMobile: false
     }
     this.handleWindowSizeChange = this.handleWindowSizeChange.bind(this)
   }
 
-  componentWillMount() {
-    if( typeof window !== `undefined` ) {
-      window.addEventListener('resize', this.handleWindowSizeChange)
-    }
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange)
+    this.handleWindowSizeChange()
   }
 
   componentWillUnmount() {
-    if( typeof window !== `undefined` ) {
-      window.removeEventListener('resize', this.handleWindowSizeChange)
-    }
+    window.removeEventListener('resize', this.handleWindowSizeChange)
   }
 
   handleWindowSizeChange() {
-    if( typeof window !== `undefined` ) {
-      this.setState({
-        width: window.innerWidth
-      })
-    }
+    this.setState({
+      isMobile: window.innerWidth <= 800
+    })
   }
 
   render() {
 
     const path = this.props.path
-    const { width } = this.state
+    const { isMobile } = this.state
     const children = this.props.children
     let mobile = null
     
-    if (width != null) {
-      mobile = width <= 800
-    }
-
     return (   
-      <TemplateWrapper path={path} isMobile={mobile} children={children} />
+      <TemplateWrapper path={path} isMobile={isMobile} children={children} />
     )
   }
 }
