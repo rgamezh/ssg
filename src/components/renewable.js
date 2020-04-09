@@ -84,7 +84,7 @@ class Renewable extends React.Component {
 
                             </div>
 
-                            <div className="col-lg-6 col-12 order-sm-12 order-md-1 text-justify">
+                            <div className="col-lg-6 col-12 order-sm-12 order-md-12 text-justify">
 
                                 <h3 className="mt-sm-3">Instalación</h3>
 
@@ -95,7 +95,7 @@ class Renewable extends React.Component {
 
                             </div>
 
-                            <div className="col-lg-6 col-12 order-sm-1 order-md-12 px-lg-0">
+                            <div className="col-lg-6 col-12 order-sm-1 order-md-1 px-lg-0">
 
                                 <Img style={{maxHeight: '300px'}} fluid={data.instalacion.childImageSharp.fluid} />
                         

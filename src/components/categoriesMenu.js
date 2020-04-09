@@ -110,7 +110,6 @@ export default class CategoriesMenu extends React.Component {
                             {
                                 data.categoryByIluminationType.edges.map(({ node }) => (
                                     <div key={node.frontmatter.title} className="category-menu-button">
-                                        {console.log(node)}
                                         <Link
                                             onClick={ () => { this.onCategoryClick(node.frontmatter.title, node.frontmatter.type)} }
                                             className="category-link"
@@ -148,9 +147,12 @@ export default class CategoriesMenu extends React.Component {
                                         to={ path + '#series' }
                                         onClick={ () => { this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
                                         role="button"
-                                        className="btn m-3 col-lg-2 subcategory-link"
-                                    >
-                                        {sub.frontmatter.title}
+                                        className="btn m-3 col-lg-2 subcategory-link d-flex align-items-center"
+                                    >   
+                                        <div style={{width: '50px'}}>
+                                            <Img fluid={sub.frontmatter.image.childImageSharp.fluid} />
+                                        </div>
+                                            {sub.frontmatter.title}
                                     </Link>
                                 ))
                             }

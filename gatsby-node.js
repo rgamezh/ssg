@@ -21,6 +21,17 @@ exports.createPages = ({ actions, graphql }) => {
               category
               subcategory
               serie
+              image {
+                childImageSharp {
+                  fluid(quality: 100, maxWidth: 50) {
+                    base64
+                    aspectRatio
+                    srcSet
+                    src
+                    sizes
+                  }
+                }
+              }
               images {
                 alt
                 image {

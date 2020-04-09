@@ -31,7 +31,7 @@ export class ProductPageTemplate extends React.Component {
   
     return(
       <>
-        <div className="product-container rounded-lg shadow-lg m-lg-5 p-lg-5">
+        <div className="product-container rounded-lg m-lg-5 p-lg-5">
           <div className="row">
             <div className="col-sm-6 product-images">
               <div className="shadow active-image p-3 rounded-lg" style={{marginLeft: '-100px', width: '100%'}}>
@@ -41,7 +41,7 @@ export class ProductPageTemplate extends React.Component {
                     <div className="col-3">
                       {
                         images.map((image, index) => (
-                          <Img key={index} style={{boxShadow: `${this.state.pictureToShow === index? '2px 2px 10px #33cf67': ''}`}} fluid={image.image.childImageSharp.fluid} alt={image.alt} />
+                          <Img key={index} style={{borderBottom: `${this.state.pictureToShow === index? '2px solid #33326e': ''}`}} fluid={image.image.childImageSharp.fluid} alt={image.alt} />
                         ))
                       }
                     </div>
