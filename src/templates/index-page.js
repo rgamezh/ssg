@@ -17,13 +17,13 @@ const IndexPage = (props) => {
         <div className="carousel-inner">
           <div className="carousel-item active" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block p-3 p-lg-0" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo mb-3" fluid={props.data.et2.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea ET2</p>
               <a
                     className="btn lamps-slider-link"
                     href="https://www.et2online.com/"
-                    target="_Blank"
+                    target="_blank"
                     rel="noopener noreferrer"
                     style={{
                       color: `white`,
@@ -36,7 +36,7 @@ const IndexPage = (props) => {
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image2.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block p-3 p-lg-0" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo text-center mb-3" fluid={props.data.maxim.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea MAXIM.</p>
               <a
@@ -55,7 +55,7 @@ const IndexPage = (props) => {
           </div>
           <div className="carousel-item" style={{height: '500px'}}>
             <Img style={{height: '500px'}} fluid={props.data.image3.childImageSharp.fluid} />
-            <div className="lamps-carousel-caption carousel-caption d-md-block" style={{borderRadius: '30px', bottom: '60px'}}>
+            <div className="lamps-carousel-caption carousel-caption d-md-block p-3 p-lg-0" style={{borderRadius: '30px', bottom: '60px'}}>
               <Img className="slider-logo text-center mb-3" fluid={props.data.quor.childImageSharp.fluid} />
               <p className="slider-text" style={{marginBottom: '1rem'}}>Lamparas decorativas de línea Quor.</p>
               <a
@@ -164,7 +164,7 @@ export const IndexPageQuery = graphql`
         }
       }
     }
-    image2: file(relativePath: {eq: "alumbrado-publico.jpg"}) {
+    image2: file(relativePath: {eq: "portada-lamparas-decorativas.jpg"}) {
       childImageSharp{
         fluid(maxWidth: 1920, quality: 100){
           ...GatsbyImageSharpFluid

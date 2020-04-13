@@ -31,10 +31,10 @@ export class ProductPageTemplate extends React.Component {
   
     return(
       <>
-        <div className="product-container rounded-lg m-lg-5 p-lg-5">
+        <div className="product-container rounded-lg m-3 m-lg-5 p-lg-5">
           <div className="row">
             <div className="col-sm-6 product-images">
-              <div className="shadow active-image p-3 rounded-lg" style={{marginLeft: '-100px', width: '100%'}}>
+              <div className="shadow active-image p-3 rounded-lg product-image-outstand">
                 <Img className="product-image rounded-lg" fluid={images[this.state.pictureToShow].image.childImageSharp.fluid} alt={images[this.state.pictureToShow].alt} />  
                 <div className="container mt-2">
                   <div className="row">
@@ -49,7 +49,7 @@ export class ProductPageTemplate extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="col-sm-6 product-info">
+            <div className="col-sm-6 product-info p-5 p-lg-0">
               <h1>{title}</h1>
               <p>categoría: <span>{category}</span></p>
               {
@@ -86,7 +86,7 @@ export class ProductPageTemplate extends React.Component {
                 ip != null ? <p>ip: {ip}</p> : ''
               }
               {
-                dataSheet != null ? <a href={dataSheet.publicURL}>ver ficha tecnica</a> : ''
+                dataSheet != null ? <a href={dataSheet.publicURL} target="_blank" rel="noopener noreferrer">ver ficha tecnica</a> : ''
               }
             </div>
           </div>

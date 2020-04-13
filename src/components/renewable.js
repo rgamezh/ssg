@@ -6,18 +6,10 @@ import renewableVideo from '../../static/img/renewable-video.mp4'
 
 class Renewable extends React.Component {
 
-    state = {
-        titleMarginTop: Number
-    }
-
     render() {
 
         const data = this.props.data
         
-        if(!this.props.willRender){
-            return null
-        }
-
         return (
             <>
                 <div id="renewable" className="container purple-text">
@@ -172,6 +164,7 @@ class Renewable extends React.Component {
                 </div>
             </>
         )
+           
     }
 }
 

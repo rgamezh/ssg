@@ -14,7 +14,7 @@ export default class CategoriesMenu extends React.Component {
     }
 
     productRenderer (category, type) {
-        console.log(this.props)
+        
         const subcategoriesToRender = [],
               seriesToRender = [],
               productsToRender = []
@@ -137,28 +137,28 @@ export default class CategoriesMenu extends React.Component {
                         </div>
                     </div>
                 </div>
-                {
-                    this.state.showSubcategories?
-                        <div id="subcategories" className="subcategories-menu mb-5 row">
-                            {
-                                subcategories.map(sub => (
-                                    <Link 
-                                        key={sub.id}
-                                        to={ path + '#series' }
-                                        onClick={ () => { this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
-                                        role="button"
-                                        className="btn m-3 col-lg-2 subcategory-link d-flex align-items-center"
-                                    >   
-                                        <div style={{width: '50px'}}>
-                                            <Img fluid={sub.frontmatter.image.childImageSharp.fluid} />
-                                        </div>
-                                            {sub.frontmatter.title}
-                                    </Link>
-                                ))
-                            }
-                        </div>
-                    : ''
-                }
+                <div id="subcategories" className="subcategories-menu mb-5 row">
+                    {
+                        this.state.showSubcategories?
+                            
+                            subcategories.map(sub => (
+                                <Link 
+                                    key={sub.id}
+                                    to={ path + '#series' }
+                                    onClick={ () => { this.onCategoryClick(sub.frontmatter.title, sub.frontmatter.type)}}
+                                    role="button"
+                                    className="btn m-3 col-lg-2 subcategory-link d-flex align-items-center"
+                                >   
+                                    <div style={{width: '50px'}}>
+                                        <Img fluid={sub.frontmatter.image.childImageSharp.fluid} />
+                                    </div>
+                                        {sub.frontmatter.title}
+                                </Link>
+                            ))
+                                
+                        : ''
+                    }
+                </div>
                 
                 <div id="series" className="series-menu">
                     <div className="row">

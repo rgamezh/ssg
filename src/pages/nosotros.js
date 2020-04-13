@@ -39,7 +39,7 @@ export default class Nosotros extends React.Component {
                                 <div className="d-flex align-items-center justify-content-center">
                                     <span className="title-icon"><Img style={{ maxWidth: '80px' }} fluid={data.presencia.childImageSharp.fluid} /></span>
                                     <h2
-                                        className="default-titles decorative text-center mt-5 mb-5"
+                                        className="purple-text decorative text-center mt-5 mb-5"
                                         type="button"
                                         data-toggle="collapse"
                                         data-target="#collapseOne"
@@ -50,7 +50,7 @@ export default class Nosotros extends React.Component {
                                     </h2>
                                 </div>
                             </div>
-                            <div id="collapseOne" className="collapse show" aria-labelledby="nuestra-presencia-header" data-parent="#us-accordion">
+                            <div id="collapseOne" className="collapse" aria-labelledby="nuestra-presencia-header" data-parent="#us-accordion">
                                 <div className="card-body">
                                     <div className="row text-justify purple-text">
                                         <p>
@@ -83,7 +83,7 @@ export default class Nosotros extends React.Component {
                                 <div className="d-flex align-items-center justify-content-center">
                                     <span className="title-icon"><Img style={{ maxWidth: '80px' }} fluid={data.nuestrosProductos.childImageSharp.fluid} /></span>
                                     <h2
-                                        className="default-titles decorative text-center mt-5 mb-5"
+                                        className="purple-text decorative text-center mt-5 mb-5"
                                         type="button"
                                         data-toggle="collapse"
                                         data-target="#collapseTwo"
@@ -119,8 +119,7 @@ export default class Nosotros extends React.Component {
                                 <div className="d-flex align-items-center justify-content-center">
                                     <span className="title-icon"><Img style={{ maxWidth: '80px' }} fluid={data.valores.childImageSharp.fluid} /></span>
                                     <h2 
-                                        style={{width: 'min-content'}}
-                                        className="default-titles decorative text-center mt-5 mb-5 collapsed"
+                                        className="purple-text decorative text-center mt-5 mb-5 collapsed"
                                         type="button" 
                                         data-toggle="collapse" 
                                         data-target="#collapseThree" 

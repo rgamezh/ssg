@@ -44,13 +44,9 @@ export default class IluminationPageTemplate extends React.Component {
     getProducts = async () => {
         if( Object.keys(this.state.products).length === 0 ) {
             this.products = await import('../../public/products.json')
-        } else {
-            console.log('Productos previamente importados')
-        }
+        } 
         if( Object.keys(this.state.subcategories).length === 0 ) {
             this.subcategories = await import('../../public/subcategories.json')
-        } else {
-            console.log('Subcategorias previamente importadas')
         }
         this.setState({
             products: this.products,
@@ -63,6 +59,7 @@ export default class IluminationPageTemplate extends React.Component {
               path = this.props.path,
               products = this.state.products.default,
               subcategories = this.state.subcategories.default
+              
             
         let iluminationTypeWillRender = this.state.renderIluminationType,
             renewableWillRender = this.state.renderRenewable
@@ -119,7 +116,14 @@ export default class IluminationPageTemplate extends React.Component {
                                     
                                 </div>
                             </div>
-                            : <Renewable willRender={renewableWillRender}/>
+                            :
+                                <>
+                                {
+                                    renewableWillRender?
+                                        <Renewable />
+                                    : ''
+                                }
+                                </>
                         }
                     </>
                     :
