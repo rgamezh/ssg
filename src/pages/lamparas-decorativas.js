@@ -49,17 +49,16 @@ export default class LamparasDecorativasPage extends React.Component {
                                 <li data-target="#indexCarouser" data-slide-to="22"></li>
                             </ol>
                             <div className="carousel-inner rounded">
-                                <div className="carousel-item active" style={{ height: '300px' }}>
+                                <div 
+                                    className="carousel-item active" 
+                                    style={{ 
+                                        height: '300px' 
+                                    }}
+                                >
                                     <Img style={{ height: '300px' }} fluid={data.h101.childImageSharp.fluid} />
                                 </div>
                                 <div className="carousel-item" style={{ height: '300px' }}>
                                     <Img style={{ height: '300px' }} fluid={data.h102.childImageSharp.fluid} />
-                                </div>
-                                <div className="carousel-item" style={{ height: '300px' }}>
-                                    <Img style={{ height: '300px' }} fluid={data.h103.childImageSharp.fluid} />
-                                </div>
-                                <div className="carousel-item" style={{ height: '300px' }}>
-                                    <Img style={{ height: '300px' }} fluid={data.h104.childImageSharp.fluid} />
                                 </div>
                                 <div className="carousel-item" style={{ height: '300px' }}>
                                     <Img style={{ height: '300px' }} fluid={data.h105.childImageSharp.fluid} />
@@ -99,9 +98,6 @@ export default class LamparasDecorativasPage extends React.Component {
                                 </div>
                                 <div className="carousel-item" style={{ height: '300px' }}>
                                     <Img style={{ height: '300px' }} fluid={data.h117.childImageSharp.fluid} />
-                                </div>
-                                <div className="carousel-item" style={{ height: '300px' }}>
-                                    <Img style={{ height: '300px' }} fluid={data.h118.childImageSharp.fluid} />
                                 </div>
                                 <div className="carousel-item" style={{ height: '300px' }}>
                                     <Img style={{ height: '300px' }} fluid={data.h119.childImageSharp.fluid} />
