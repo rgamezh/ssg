@@ -16,11 +16,11 @@ export default class CategoriesMenu extends React.Component {
     categoriesContainer = null
 
     left() {
-        this.categoriesContainer.scrollBy({left: -600, behavior: 'smooth'})
+        this.categoriesContainer.scrollBy({left: -300, behavior: 'smooth'})
     }
 
     right() {
-        this.categoriesContainer.scrollBy({left: 600, behavior: 'smooth'}) 
+        this.categoriesContainer.scrollBy({left: 300, behavior: 'smooth'}) 
     }
 
     productRenderer (category, type) {

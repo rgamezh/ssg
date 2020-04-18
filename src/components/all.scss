@@ -784,6 +784,9 @@ footer .divisor{
   &.right {
     right: 0;
   }
+  @media(max-width: 800px) {
+    display: none;
+  }
 }
 
 .categories-menu {
