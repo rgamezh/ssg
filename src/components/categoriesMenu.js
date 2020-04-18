@@ -13,6 +13,16 @@ export default class CategoriesMenu extends React.Component {
         showSeries: false
     }
 
+    categoriesContainer = null
+
+    left() {
+        this.categoriesContainer.scrollBy({left: -600, behavior: 'smooth'})
+    }
+
+    right() {
+        this.categoriesContainer.scrollBy({left: 600, behavior: 'smooth'}) 
+    }
+
     productRenderer (category, type) {
         
         const subcategoriesToRender = [],
@@ -105,7 +115,24 @@ export default class CategoriesMenu extends React.Component {
         return (
             <>
                 <div className="categories-menu-container">
-                    <div className="categories-menu">
+                    <span 
+                        className="arrows left"
+                        onClick={() => {this.left()}}
+                    >
+                        &#8636;
+                    </span>
+                    <span 
+                        className="arrows right"
+                        onClick={() => {this.right()}}
+                    >
+                        &#8640;
+                    </span>
+                    <div 
+                        className="categories-menu"
+                        ref={node => {
+                            this.categoriesContainer = node
+                        }}
+                    >
                         <div className="categories-menu-outer pt-5 pb-5">
                             {
                                 data.categoryByIluminationType.edges.map(({ node }) => (
